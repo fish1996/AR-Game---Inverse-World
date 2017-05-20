@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: qq.example.com
   productName: Inverse_World_Game_Project
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   applicationIdentifier:
-    Android: com.ZJU.InverseWorld
+    Android: com.example.qq.InverseWorld
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
