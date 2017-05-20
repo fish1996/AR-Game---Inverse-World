@@ -8,11 +8,18 @@ public class SaveData : MonoBehaviour {
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
+	private StoryData data = StoryData.getInstance();
+
 	public void save() {
+		string updateString = "UPDATE playerData SET dialogNum = "
+		                      + data.Dnum + ",clueNum = " 
+			                  + data.Cnum + ",chapterNum = " 
+			                  + data.Cnum;
+		ExecuteQuery (updateString);
 	}
 	public SaveData () {
 		try{
-			dbConnection = new SqliteConnection();
+			dbConnection = new SqliteConnection("data source = playerdata.db");
 			dbConnection.Open();
 		}
 		catch(Exception e){
@@ -43,9 +50,4 @@ public class SaveData : MonoBehaviour {
 		}
 		dbConnection = null;
 	}
-
-
 }
-	
-
-

@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-
 public class Showchat : MonoBehaviour {
 
 	public Text Content;
-	public int Dnum; //表示目前的对话进度
-	public int Cnum; //表示目前的线索进度
-	public int Pnum; //表示目前的关卡进度
 	public GameObject d;
 	public string mname;
 	public Dialogtext other;
@@ -19,13 +15,14 @@ public class Showchat : MonoBehaviour {
 	public Image Member;
 	public static bool isgetclue;
 	public string factclue;
+	public StoryData data = StoryData.getInstance();
 
 	// Use this for initialization
 	void Start () {
 		isgetclue = false;
-		Dnum = 1;
-		Cnum = 1;
-		Pnum = 1;
+		data.Dnum = 1;
+		data.Cnum = 1;
+		data.Pnum = 1;
 		factclue = "";
 
 		mname="衡琳";
@@ -50,9 +47,9 @@ public class Showchat : MonoBehaviour {
 	}
 
 	public void show(){
-		string fdiatxt = other.chattext.ptxt [Pnum - 1].ctxt [Cnum - 1].dtxt [Dnum - 1].diatxt;
+		string fdiatxt = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].dtxt [data.Dnum - 1].diatxt;
 		Content.text = fdiatxt;
-		int fdnum = other.chattext.ptxt [Pnum - 1].ctxt [Cnum - 1].dtxt [Dnum - 1].num;
+		int fdnum = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].dtxt [data.Dnum - 1].num;
 		if (fdnum == 0) {
 			Member.sprite = player;
 		} 
@@ -66,21 +63,21 @@ public class Showchat : MonoBehaviour {
 		switch (sender.name)
 		{
 		case "Dialogbox":
-			int fdnum = other.chattext.ptxt [Pnum - 1].ctxt [Cnum - 1].dnum;
-			int fcnum = other.chattext.ptxt [Pnum - 1].cnum;
-			if (Dnum < fdnum) {
-				Dnum++;
+			int fdnum = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].dnum;
+			int fcnum = other.chattext.ptxt [data.Pnum - 1].cnum;
+			if (data.Dnum < fdnum) {
+				data.Dnum++;
 				show ();
 			} 
-			else if (Dnum == fdnum) {
-				factclue = other.chattext.ptxt [Pnum - 1].ctxt [Cnum - 1].clue;
-				Dnum = 1;
-				if (Cnum == fcnum) {
-					Cnum = 1;
-					Pnum++;
+			else if (data.Dnum == fdnum) {
+				factclue = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].clue;
+				data.Dnum = 1;
+				if (data.Cnum == fcnum) {
+					data.Cnum = 1;
+					data.Pnum++;
 				} 
 				else {
-					Cnum++;
+					data.Cnum++;
 				}
 				isgetclue = true;
 				show ();
@@ -97,22 +94,22 @@ public class Showchat : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (t >= 1) {
-			int fdnum = other.chattext.ptxt [Pnum - 1].ctxt [Cnum - 1].dnum;
-			int fcnum = other.chattext.ptxt [Pnum - 1].cnum;
-			if (Input.GetKey (KeyCode.Space) && (Dnum < fdnum)) {
-				Dnum++;
+			int fdnum = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].dnum;
+			int fcnum = other.chattext.ptxt [data.Pnum - 1].cnum;
+			if (Input.GetKey (KeyCode.Space) && (data.Dnum < fdnum)) {
+				data.Dnum++;
 				show ();
 				t = 0;
 			} 
-			else if (Input.GetKey (KeyCode.Space) && (Dnum == fdnum)) {
-				factclue = other.chattext.ptxt [Pnum - 1].ctxt [Cnum - 1].clue;
-				Dnum = 1;
-				if (Cnum == fcnum) {
-					Cnum = 1;
-					Pnum++;
+			else if (Input.GetKey (KeyCode.Space) && (data.Dnum == fdnum)) {
+				factclue = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].clue;
+				data.Dnum = 1;
+				if (data.Cnum == fcnum) {
+					data.Cnum = 1;
+					data.Pnum++;
 				} 
 				else {
-					Cnum++;
+					data.Cnum++;
 				}
 				isgetclue = true;
 				show ();
