@@ -20,9 +20,6 @@ public class Showchat : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isgetclue = false;
-		data.Dnum = 1;
-		data.Cnum = 1;
-		data.Pnum = 1;
 		factclue = "";
 
 		mname="衡琳";
