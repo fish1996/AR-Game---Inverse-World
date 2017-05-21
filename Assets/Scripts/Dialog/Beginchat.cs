@@ -6,6 +6,7 @@ public class Beginchat : MonoBehaviour {
 	private GameObject MemberObject;
 	private GameObject Totalbox; //表示整个与闲聊相关的ui
 	public static bool ischat;
+	public float t; //用于控制时间间隔
 
 	// Use this for initialization
 	void Start () {
@@ -16,23 +17,27 @@ public class Beginchat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
-		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit))
+		if (t >= 2) {
+			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
 			{
-				MemberObject = hit.transform.gameObject;
-				if (MemberObject.transform.tag == "MainCharacter") {
-					ischat = !ischat;
+				Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+				RaycastHit hit;
+				if (Physics.Raycast(ray, out hit))
+				{
+					MemberObject = hit.transform.gameObject;
+					if (MemberObject.transform.tag == "MainCharacter") {
+						ischat = !ischat;
+						t = 0;
+					}
 				}
 			}
+			if (ischat) {
+				Totalbox.SetActive (true);
+			}
+			else {
+				Totalbox.SetActive (false);
+			}
 		}
-		if (ischat) {
-			Totalbox.SetActive (true);
-		}
-		else {
-			Totalbox.SetActive (false);
-		}
+		t+=Time.deltaTime;
 	}
 }
