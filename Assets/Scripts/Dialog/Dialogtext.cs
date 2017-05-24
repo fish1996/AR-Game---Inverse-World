@@ -6,6 +6,7 @@ using System.IO;
 public class Dialogtext : MonoBehaviour {
 
 	public Chattext chattext;
+	public ClueIntroduction clueIntroduction;
 	public string memberName;
 	private static Dialogtext instance;
 
@@ -29,10 +30,13 @@ public class Dialogtext : MonoBehaviour {
 
 	//获取当前用户选取的人物对话剧本
 	public void getText(string memberName){	//musicName不带后缀
-		//读取音乐文件
+		//读取文件
 		Dialogtext.GetInstance().memberName = memberName;
 		string memberPath = Path.Combine("Member", memberName);
 		Dialogtext.GetInstance().chattext = new Chattext (memberPath);
+
+		string cluePath = Path.Combine("Clue", memberName);
+		Dialogtext.GetInstance().clueIntroduction = new ClueIntroduction (cluePath);
 	}
 		 
 	//对话类
@@ -53,7 +57,7 @@ public class Dialogtext : MonoBehaviour {
 		public struct Ptxt
 		{
 			public List<Ctxt> ctxt;
-			public int cnum; //表示线索类型
+			public int cnum; //表示线索数目
 		} //对应每个关卡
 
 		public int pnum;
@@ -72,23 +76,6 @@ public class Dialogtext : MonoBehaviour {
 				Ptxt tempptxt=Classify_pass(PassArray[i]);
 				ptxt.Add(tempptxt);
 			}
-		}
-
-		//用于以特定字符串分离字符串
-		public static string[] SplitWithString(string sourceString, string splitString){  
-
-			List<string> arrayList = new List<string>();  
-			string s = string.Empty;  
-			while (sourceString.IndexOf(splitString) > -1)  
-			{  
-				s = sourceString.Substring(0, sourceString.IndexOf(splitString));  
-				sourceString = sourceString.Substring(sourceString.IndexOf(splitString) + splitString.Length); 
-				if (s != "") {
-					arrayList.Add (s);  
-				}
-			}  
-			arrayList.Add(sourceString);  
-			return arrayList.ToArray();  
 		}
 
 		//根据关卡分类
@@ -163,4 +150,61 @@ public class Dialogtext : MonoBehaviour {
 		}
 	}
 
+	//线索类
+	public class ClueIntroduction{
+		public struct Clue
+		{
+			public string cluewords;
+			public string clueparagraph;
+		}
+
+		public List<Clue> cluetxt;
+
+		public ClueIntroduction(string cluePath){
+			TextAsset binAsset = Resources.Load(cluePath, typeof(TextAsset)) as TextAsset;
+
+			cluetxt = new List<Clue>();
+			string [] PassArray;
+			PassArray=SplitWithString(binAsset.text,"\n\n"); //根据关卡分割字符串
+
+			for (int i = 0; i < PassArray.Length; i++){
+				Clue tempcluetxt=Classify(PassArray[i]);
+				cluetxt.Add(tempcluetxt);
+			}
+		}
+
+		//分离线索和对应的对话
+		public static Clue Classify(string text)
+		{
+			Clue temp;
+			string [] ClueArray;
+			ClueArray=SplitWithString(text,"\n"); //根据线索分割字符串，此处选择空行区分每一线索
+
+			temp.cluewords = ClueArray [0];
+
+			int length = text.Length - ClueArray [0].Length - 1;
+			temp.clueparagraph = text.Substring (ClueArray [0].Length + 1,length);
+
+			return temp;
+		}
+
+
+	}
+
+	//用于以特定字符串分离字符串
+	public static string[] SplitWithString(string sourceString, string splitString){  
+
+		List<string> arrayList = new List<string>();  
+		string s = string.Empty;  
+		while (sourceString.IndexOf(splitString) > -1)  
+		{  
+			s = sourceString.Substring(0, sourceString.IndexOf(splitString));  
+			sourceString = sourceString.Substring(sourceString.IndexOf(splitString) + splitString.Length); 
+			if (s != "") {
+				arrayList.Add (s);  
+			}
+		}  
+		arrayList.Add(sourceString);  
+		return arrayList.ToArray();  
+	}
 }
