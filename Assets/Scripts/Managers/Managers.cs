@@ -5,14 +5,14 @@ using System.Collections.Generic;
 [RequireComponent(typeof(InventoryManager))]
 [RequireComponent(typeof(DataManager))]
 [RequireComponent(typeof(PlayerManager))]
-[RequireComponent(typeof(SceneManager))]
+[RequireComponent(typeof(MissionManager))]
 
 public class Managers : MonoBehaviour {
     
     public static InventoryManager Inventory { get; private set; }
     public static DataManager Data{ get; private set; }
     public static PlayerManager Player { get; private set; }
-    public static SceneManager Scene { get; private set; }
+    public static MissionManager Scene { get; private set; }
 
     private List<IGameManager> _startSequence;
 
@@ -23,7 +23,7 @@ public class Managers : MonoBehaviour {
         Data = GetComponent<DataManager>();
         Inventory = GetComponent<InventoryManager>();
         Player = GetComponent<PlayerManager>();
-        Scene = GetComponent<SceneManager>();
+        Scene = GetComponent<MissionManager>();
 
         _startSequence = new List<IGameManager>();
         _startSequence.Add(Inventory);

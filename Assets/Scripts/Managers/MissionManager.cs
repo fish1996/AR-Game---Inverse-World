@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour, IGameManager {
+public class MissionManager : MonoBehaviour, IGameManager {
 	public ManagerStatus status {get; private set;}
 	
 	public int curLevel {get; private set;}
@@ -30,7 +30,7 @@ public class SceneManager : MonoBehaviour, IGameManager {
 			curLevel++;
 			string name = "Level" + curLevel;
 			Debug.Log("Loading " + name);
-			Application.LoadLevel(name);//为什么我的SceneManager.LoadScene报错？
+            SceneManager.LoadScene(name);
 		} else {
 			Debug.Log("Last level");
 			//Messenger.Broadcast(GameEvent.GAME_COMPLETE);
@@ -39,18 +39,18 @@ public class SceneManager : MonoBehaviour, IGameManager {
 
     public void LoadFeedGame()
     {
-        Application.LoadLevel("FeedScene");
+        SceneManager.LoadScene("FeedScene");
     }
     public void ReturnFromFeedGame()
     {
         //string name = "Level" + curLevel;//如果有很多场景用这行
         string name = "MainScene";
-        Application.LoadLevel(name);
+        SceneManager.LoadScene(name);
     }
 
 	public void RestartCurrent() {
 		string name = "Level" + curLevel;
 		Debug.Log("Loading " + name);
-		Application.LoadLevel(name);
-	}
+        SceneManager.LoadScene(name);
+    }
 }
