@@ -11,8 +11,10 @@ public class Showchat : MonoBehaviour {
 	public Dialogtext other;
 	public float t; //用于控制时间间隔
 	public Sprite member1;//定义逆灵1的按钮图标
+	public Sprite member2;//定义逆灵1的按钮图标状态2
 	public Sprite player;//定义玩家的按钮图标
-	public Image Member;
+	public GameObject Member;
+	public Button Memberbutton;
 	public static bool isgetclue;
 	public string factclue;
 	public StoryData data = StoryData.getInstance();
@@ -21,6 +23,7 @@ public class Showchat : MonoBehaviour {
 	void Start () {
 		isgetclue = false;
 		factclue = "";
+		Memberbutton = Member.GetComponent<Button> ();
 
 		mname="衡琳";
 		PlayerPrefs.SetString("membername", mname);
@@ -48,10 +51,10 @@ public class Showchat : MonoBehaviour {
 		Content.text = fdiatxt;
 		int fdnum = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].dtxt [data.Dnum - 1].num;
 		if (fdnum == 0) {
-			Member.sprite = player;
+			Memberbutton.GetComponent<Image>().sprite=player ;
 		} 
 		else if (fdnum == 1) {
-			Member.sprite = member1;
+			Memberbutton.GetComponent<Image>().sprite=member1 ;
 		}
 	}
 

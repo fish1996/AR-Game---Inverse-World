@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Beginchat : MonoBehaviour {
 	private GameObject MemberObject;
 	private GameObject Totalbox; //表示整个与闲聊相关的ui
@@ -10,7 +11,7 @@ public class Beginchat : MonoBehaviour {
 	private SaveData saveData;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		saveData = new SaveData ();
 		saveData.Load ();
 		Debug.Log ("is new");
@@ -19,14 +20,15 @@ public class Beginchat : MonoBehaviour {
 		Totalbox.SetActive (false);
 	}
 
+
 	void OnApplicationQuit(){
 		saveData.Save ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (t >= 2) {
-			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+		if (t >= 1) {
+			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
 			{
 				Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 				RaycastHit hit;
