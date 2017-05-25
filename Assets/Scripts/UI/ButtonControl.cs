@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//注意这个不能少
 //using UnityEngine.SceneManagement;  
-using UnityEditor.Sprites ;
+//using UnityEditor.Sprites ;
 using System.IO;
 
 public class ButtonControl : MonoBehaviour {
