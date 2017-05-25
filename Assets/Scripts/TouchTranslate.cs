@@ -6,7 +6,7 @@ using Vuforia;
 public class TouchTranslate : MonoBehaviour
 {
     private GameObject hitObject;
-    private Vector3 _targetPos = new Vector3(-100, 0, 600);
+    private Vector3 _targetPos = new Vector3(100, 0, 600);
     public float rotSpeed = 0.002f;      //旋转速度
     public float transSpeed =200.0f;
     public float targetBuffer = 10.0f;
@@ -17,7 +17,7 @@ public class TouchTranslate : MonoBehaviour
         if (TranslateStart)
         {
         }
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
        {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;

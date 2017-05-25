@@ -154,6 +154,7 @@ public class Dialogtext : MonoBehaviour {
 	public class ClueIntroduction{
 		public struct Clue
 		{
+			public bool isshow;
 			public string cluewords;
 			public string clueparagraph;
 		}
@@ -165,7 +166,7 @@ public class Dialogtext : MonoBehaviour {
 
 			cluetxt = new List<Clue>();
 			string [] PassArray;
-			PassArray=SplitWithString(binAsset.text,"\n\n"); //根据关卡分割字符串
+			PassArray=SplitWithString(binAsset.text,"\n\n"); //根据空行分割字符串
 
 			for (int i = 0; i < PassArray.Length; i++){
 				Clue tempcluetxt=Classify(PassArray[i]);
@@ -184,6 +185,8 @@ public class Dialogtext : MonoBehaviour {
 
 			int length = text.Length - ClueArray [0].Length - 1;
 			temp.clueparagraph = text.Substring (ClueArray [0].Length + 1,length);
+
+			temp.isshow = false;
 
 			return temp;
 		}
