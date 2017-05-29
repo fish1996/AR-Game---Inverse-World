@@ -8,12 +8,9 @@ public class Beginchat : MonoBehaviour {
 	private GameObject Totalbox; //表示整个与闲聊相关的ui
 	public static bool ischat;
 	public float t; //用于控制时间间隔
-	private SaveData saveData;
 
 	// Use this for initialization
 	void Awake () {
-		saveData = new SaveData ();
-		saveData.Load ();
 		Debug.Log ("is new");
 		ischat = false;
 		Totalbox = GameObject.Find ("Canvas");
@@ -21,10 +18,6 @@ public class Beginchat : MonoBehaviour {
 	}
 
 
-	void OnApplicationQuit(){
-		saveData.Save ();
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		if (t >= 1) {

@@ -5,15 +5,16 @@ using System.IO;
 using System;
 
 public class SaveData{
-	
+	private const int TABLENUM = 2;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
-	private StoryData data = StoryData.getInstance();
-	private string tableName = "story";
-	private bool isTableExist() {		
+	private StoryData storyData = StoryData.getInstance();
+	private FeedData feedData = FeedData.getInstance ();
+	private string[] tableName = new string[TABLENUM];
+	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
-			+ tableName + "'";
+			+ tableName[id] + "'";
 		dataReader = ExecuteQuery (query);
 		int ans = 0;
 		while (dataReader.Read()) {
@@ -40,39 +41,85 @@ public class SaveData{
 	}
 
 	private void LoadPlayerData(){
+		//加载story data
 		string query = "SELECT * FROM "
-			+ tableName;
+			+ tableName[0];
 		dataReader = ExecuteQuery (query);
 		while (dataReader.Read()) {
-			data.Dnum = dataReader.GetInt32 (dataReader.GetOrdinal("dialogNum"));
-			data.Pnum = dataReader.GetInt32 (dataReader.GetOrdinal("chapterNum"));
-			data.Cnum = dataReader.GetInt32 (dataReader.GetOrdinal("clueNum"));
+			storyData.Dnum = dataReader.GetInt32 (dataReader.GetOrdinal("dialogNum"));
+			storyData.Pnum = dataReader.GetInt32 (dataReader.GetOrdinal("chapterNum"));
+			storyData.Cnum = dataReader.GetInt32 (dataReader.GetOrdinal("clueNum"));
 		}
-		Debug.Log (data.Dnum + " " + data.Pnum + " " + data.Cnum);
+		Debug.Log (storyData.Dnum + " " + storyData.Pnum + " " + storyData.Cnum);
+
+		//加载feed data
+		query = "SELECT * FROM "
+			+ tableName[1];
+		dataReader = ExecuteQuery (query);
+		int len = 12,data = 0;
+		while (dataReader.Read()) {
+			len = dataReader.GetInt32 (dataReader.GetOrdinal("num"));
+			data = dataReader.GetInt32 (dataReader.GetOrdinal("data"));
+		}
+		Debug.Log ("len = " + len + " data = " + data);
+		feedData.hadChoose = new bool[len];
+		for (int i = 0; i < len; i++) {
+			feedData.hadChoose [i] = (data & 1) > 0;
+			Debug.Log ("feed " + i + " " + feedData.hadChoose [i]);
+			data >>= 1;
+		}
 	}
 
-	private void CreateTable() {
-		string query = "CREATE TABLE " + tableName + "(id INT PRIMARY KEY NOT NULL,dialogNum INT NOT NULL," +
-			"clueNum INT NOT NULL, chapterNum INT NOT NULL);";
-		ExecuteQuery (query);
-		query = "INSERT INTO " + tableName + " values(1,1,1,1);";
-		ExecuteQuery (query);
-	}
+	private void CreateTable(int id) {
+		string query;
+		switch(id){
+		case 0:
+			{
+				//建表 : story
+				query = "CREATE TABLE " + tableName [0] + "(id INT PRIMARY KEY NOT NULL,dialogNum INT NOT NULL," +
+				"clueNum INT NOT NULL, chapterNum INT NOT NULL);";
+				ExecuteQuery (query);
+				//向story存入初始数据
+				query = "INSERT INTO " + tableName[0] + " values(1,1,1,1);";
+				ExecuteQuery (query);
+				break;
+			}
+		case 1:
+			{
+				//建表 : feed
+				query = "CREATE TABLE " + tableName[1] + "(id INT PRIMARY KEY NOT NULL,num INT NOT NULL," +
+					"data INT NOT NULL);";
+				ExecuteQuery (query);
 
-	void OnGUI(){
-		GUI.Label(new Rect(10,10,200,20),Convert.ToString(data.Pnum));
+				//向feed存入初始数据
+				query = "INSERT INTO " + tableName[1] + " values(1,12,0);";
+				ExecuteQuery (query);
+				break;
+			}
+		}
 	}
-
+		
 	public void Save() {
-		string updateString = "UPDATE story SET dialogNum = "
-		                      + data.Dnum + ",clueNum = " 
-			                  + data.Cnum + ",chapterNum = " 
-		                   	  + data.Cnum + " WHERE id = 1;";
+		string updateString = "UPDATE " + tableName[0] + " SET dialogNum = "
+		                      + storyData.Dnum + ",clueNum = " 
+			                  + storyData.Cnum + ",chapterNum = " 
+		                   	  + storyData.Pnum + " WHERE id = 1;";
 		ExecuteQuery(updateString);
-		CloseConnection ();
+
+		int data = 0;
+		for (int i = 0; i < feedData.hadChoose.Length; i++) {
+			if (feedData.hadChoose [i]) {
+				data += (1 << i);
+			}
+		}
+		updateString = "UPDATE " + tableName[1] + " SET data = "
+			+ data + " WHERE id = 1;";
+		ExecuteQuery(updateString);
 	}
 
 	public SaveData () {
+		tableName [0] = "story";
+		tableName [1] = "feed";
 	}
 
 	public void Load(){
@@ -84,17 +131,15 @@ public class SaveData{
 		catch(Exception e){
 			Debug.Log (e.ToString());
 		}
-		if (!isTableExist ()) {
-			Debug.Log ("noexist");
-			CreateTable ();
-			data.Dnum = 1;
-			data.Cnum = 1;
-			data.Pnum = 1;
+		if (!isTableExist (0)) {
+			Debug.Log ("noexist story");
+			CreateTable (0);
 		} 
-		else {
-			Debug.Log ("exist");
-			LoadPlayerData ();
-		}
+		if (!isTableExist (1)) {
+			Debug.Log ("noexist feed");
+			CreateTable (1);
+		} 
+		LoadPlayerData ();
 	}
 
 	public void CloseConnection(){

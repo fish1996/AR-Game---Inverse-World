@@ -13,11 +13,18 @@ public class Managers : MonoBehaviour {
     public static DataManager Data{ get; private set; }
     public static PlayerManager Player { get; private set; }
     public static MissionManager Scene { get; private set; }
-
+	private SaveData saveData;
     private List<IGameManager> _startSequence;
+
+	void OnApplicationQuit(){
+		saveData.Save ();
+		saveData.CloseConnection ();
+	}
 
     void Awake()
     {
+		saveData = new SaveData ();
+		saveData.Load ();
         DontDestroyOnLoad(gameObject);
 
         Data = GetComponent<DataManager>();

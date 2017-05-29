@@ -30,14 +30,14 @@ public class Choose : MonoBehaviour {
     public GameObject ShowClue;
 
     private string[][] Array;
-    private StoryData date = StoryData.getInstance();
+    private StoryData data = StoryData.getInstance();
     private int Pnum;
     private string stringPnum;
     private string folder="data/position";
     public List<Points> this_point = new List<Points>();
     public bool[] isChoose;
-    private bool[] hadChoose;//***需要存入数据库内所有点之前是否已经被选择的记录***
-    private bool[] failChoose;//***需要存入数据库内所有点之前是否已经被选择的记录***
+	private FeedData feedData = FeedData.getInstance ();
+	public bool[] failChoose;//***需要存入数据库内所有点之前是否已经被选择的记录***
     private bool hasFull = true;
     private bool showClue = true;
     private int choose_num = 0;
@@ -51,7 +51,7 @@ public class Choose : MonoBehaviour {
         //print("start");
         NumShow(choose_num);
 
-        Pnum = date.Pnum;
+        Pnum = data.Pnum;
         //Pnum = 1;
         System.Random ran = new System.Random();
         int RandKey = ran.Next(1, 3);
@@ -68,7 +68,6 @@ public class Choose : MonoBehaviour {
         //创建二维数组  
         Array = new string[lineArray.Length][];
         isChoose = new bool[lineArray.Length];
-        hadChoose = new bool[lineArray.Length];//***hasChoose成功读取后删除***
         failChoose = new bool[lineArray.Length];//***hasChoose成功读取后删除***
         //print(lineArray.Length);
 
@@ -81,8 +80,8 @@ public class Choose : MonoBehaviour {
         {
             Array[i] = lineArray[i].Split(',');
             isChoose[i] = false;
-            hadChoose[i] = true;//***hasChoose成功读取后删除***
-            failChoose[i] = hadChoose[i];//***hasChoose成功读取后删除***
+			feedData.hadChoose[i] = true;//***hasChoose成功读取后删除***
+			failChoose[i] = feedData.hadChoose[i];//***hasChoose成功读取后删除***
             x1 = (int)((float.Parse(Array[i][0]) / 1280) * width);
             y1 = (int)((float.Parse(Array[i][1]) / 720) * height);
             x2 = float.Parse(Array[i][2]);
@@ -101,7 +100,7 @@ public class Choose : MonoBehaviour {
             pic.GetComponent<SpriteRenderer>().sortingOrder = 2;
 			print ("id" + i);
 
-            if (hadChoose[i] == false && showClue == true)
+			if (feedData.hadChoose[i] == false && showClue == true)
                 showClue = false;
         }
 
@@ -199,7 +198,7 @@ public class Choose : MonoBehaviour {
             Destroy(GameObject.Find(i.ToString()));
             if (isChoose[i] == true)
             {
-                hadChoose[i] = true;
+				feedData.hadChoose[i] = true;
                 outx = this_point[i].x3d;
                 outy = this_point[i].y3d;
                 outz = this_point[i].z3d;
@@ -208,7 +207,7 @@ public class Choose : MonoBehaviour {
         }
         for (int i = 0; i < this_point.Count; i++)
         {
-            if (hadChoose[i] == false && hasFull == true)
+			if (feedData.hadChoose[i] == false && hasFull == true)
                 hasFull = false;
         }
         UI.SendMessage("GetPoints",choose_point);
