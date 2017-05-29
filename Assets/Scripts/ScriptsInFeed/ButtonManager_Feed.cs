@@ -11,9 +11,16 @@ public class ButtonManager_Feed : MonoBehaviour {
     public GameObject yesBtn;
     public GameObject noBtn;
     public GameObject MainController;
+    public GameObject ChooseNumText;
+    public GameObject Camare;
+    public GameObject ProgressBar;
+    public GameObject LessText;
+    public GameObject MoreText;
 
     private bool isPressed;
     private float pressTime;
+    private List<Vector3> choose_points = new List<Vector3>();
+    private const float scaledTargetSize=0.25f;
 
     private void Awake()
 
@@ -23,22 +30,40 @@ public class ButtonManager_Feed : MonoBehaviour {
         UIEventListener.Get(quitBtn).onClick += quitClicked;
         UIEventListener.Get(yesBtn).onClick += yesClicked;
         UIEventListener.Get(noBtn).onClick += noClicked;
+        hiddenLessText();
+        hiddenMoreText();
+        ProgressBar = GameObject.Find("Progress");
         isPressed = false;
         pressTime = 0;
     }
 
+    public void GetPoints(List<Vector3> choose_point)
+    {
+        print("pass:" + choose_point.Count);
+        for (int i = 0; i < choose_point.Count; i++)
+            choose_points.Add(choose_point[i]);
+    }
+
     void setList(GameObject clueBtn)//这段是与2D线索对接的
     {
+        Camare.GetComponent<Choose>().StartButtonDown();
         List<ClassOfTarget> list;
         list = new List<ClassOfTarget>();
-        ClassOfTarget tmp = new ClassOfTarget(0, new Vector3(-0.6f, -1.6f, -0.3f), 0.1f);
+        for (int i = 0; i < choose_points.Count; i++)
+        {
+            list.Add(new ClassOfTarget(0, choose_points[i], scaledTargetSize));
+            print(choose_points[i]);
+        }
+        /*ClassOfTarget tmp = new ClassOfTarget(0, new Vector3(0.0f, -1.0f, 0.0f), 0.1f);
         list.Add(tmp);
-        tmp = new ClassOfTarget(0, new Vector3(-0.4f, -1.4f, -0.3f), 0.1f);
+        tmp = new ClassOfTarget(0, new Vector3(0.1f, -0.8f, 0.2f), 0.1f);
         list.Add(tmp);
-        tmp = new ClassOfTarget(0, new Vector3(-0.15f, -1.6f, -0.6f), 0.1f);
-        list.Add(tmp);
+        tmp = new ClassOfTarget(0, new Vector3(0.3f, 0.2f, 0.3f), 0.1f);
+        list.Add(tmp);*/
         MainController.GetComponent<MainController>().SetTargetPos(list);
         clueBtn.SetActive(false);
+        ChooseNumText.SetActive(false);
+        
     }
 
     void Update()
@@ -53,6 +78,10 @@ public class ButtonManager_Feed : MonoBehaviour {
     public void pressBtnDown()
     {
         isPressed = true;
+        ProgressBar.SetActive(true);
+        ProgressBar.AddComponent<CiclularProgress>();
+        hiddenLessText();
+        hiddenMoreText();
     }
 
     public void pressBtnUp()
@@ -60,6 +89,7 @@ public class ButtonManager_Feed : MonoBehaviour {
         isPressed = false;
         Debug.Log("松按钮");
         MainController.GetComponent<MainController>().Fire(pressTime);
+        ProgressBar.SetActive(false);
         pressTime = 0;
     }
 
@@ -76,5 +106,21 @@ public class ButtonManager_Feed : MonoBehaviour {
     void noClicked(GameObject noBtn)
     {
         quitPanel.SetActive(false);
+    }
+    public void showLessText()
+    {
+        LessText.SetActive(true);
+    }
+    public void hiddenLessText()
+    {
+        LessText.SetActive(false);
+    }
+    public void showMoreText()
+    {
+        MoreText.SetActive(true);
+    }
+    public void hiddenMoreText()
+    {
+        MoreText.SetActive(false);
     }
 }

@@ -41,6 +41,7 @@ public class ButtonControl : MonoBehaviour {
 			break;
 		
 		case "FoodButton":
+			//Managers.Scene.LoadFeedGame ();
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("FeedScene"); 
 			//Application.LoadLevel (n);
 			

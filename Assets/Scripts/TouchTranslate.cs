@@ -6,11 +6,11 @@ using Vuforia;
 public class TouchTranslate : MonoBehaviour
 {
     private GameObject hitObject;
-<<<<<<< HEAD
+
     private Vector3 _targetPos = new Vector3(100, -300, 600);
-=======
-    private Vector3 _targetPos = new Vector3(100, 0, 600);
->>>>>>> 6ddb79aa8c524154c4681eca5eaaafe0071216fa
+
+    //private Vector3 _targetPos = new Vector3(100, 0, 600);
+
     public float rotSpeed = 0.002f;      //旋转速度
     public float transSpeed =200.0f;
     public float targetBuffer = 10.0f;
