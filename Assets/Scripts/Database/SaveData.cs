@@ -5,12 +5,13 @@ using System.IO;
 using System;
 
 public class SaveData{
-	private const int TABLENUM = 2;
+	private const int TABLENUM = 3;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
 	private StoryData storyData = StoryData.getInstance();
 	private FeedData feedData = FeedData.getInstance ();
+	private ClueData clueData = ClueData.getInstance ();
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -68,6 +69,27 @@ public class SaveData{
 			Debug.Log ("feed " + i + " " + feedData.hadChoose [i]);
 			data >>= 1;
 		}
+
+		//加载clue data
+		query = "SELECT * FROM "
+			+ tableName[2];
+		dataReader = ExecuteQuery (query);
+
+		while (dataReader.Read()) {
+			clueData.all_num = dataReader.GetInt32 (dataReader.GetOrdinal("cluenum"));
+			clueData.combinationnum = dataReader.GetInt32 (dataReader.GetOrdinal("combinationnum"));
+			clueData.index = dataReader.GetInt32 (dataReader.GetOrdinal("indice"));
+			data = dataReader.GetInt32 (dataReader.GetOrdinal("isactive"));
+		}
+		Debug.Log ("cluenum = " + clueData.all_num
+			+ " combinationnum = " + clueData.combinationnum
+			+ "index = " + clueData.index + " data = " + data);
+		clueData.isActive = new bool[clueData.all_num];
+		for (int i = 0; i < clueData.all_num; i++) {
+			clueData.isActive [i] = (data & 1) > 0;
+			Debug.Log ("feed " + i + " " + clueData.isActive [i]);
+			data >>= 1;
+		}
 	}
 
 	private void CreateTable(int id) {
@@ -96,16 +118,30 @@ public class SaveData{
 				ExecuteQuery (query);
 				break;
 			}
+		case 2:
+			{
+				//建表 : clue
+				query = "CREATE TABLE " + tableName[2] + "(id INT PRIMARY KEY NOT NULL,cluenum INT NOT NULL," +
+					"indice INT NOT NULL, combinationnum INT NOT NULL, isactive INT NOT NULL);";
+				ExecuteQuery (query);
+
+				//向clue存入初始数据
+				query = "INSERT INTO " + tableName[2] + " values(1,14,0,12,0);";
+				ExecuteQuery (query);			
+				break;
+			}
 		}
 	}
 		
 	public void Save() {
+		// 保存story信息
 		string updateString = "UPDATE " + tableName[0] + " SET dialogNum = "
 		                      + storyData.Dnum + ",clueNum = " 
 			                  + storyData.Cnum + ",chapterNum = " 
 		                   	  + storyData.Pnum + " WHERE id = 1;";
 		ExecuteQuery(updateString);
 
+		// 保存feed信息
 		int data = 0;
 		for (int i = 0; i < feedData.hadChoose.Length; i++) {
 			if (feedData.hadChoose [i]) {
@@ -115,15 +151,27 @@ public class SaveData{
 		updateString = "UPDATE " + tableName[1] + " SET data = "
 			+ data + " WHERE id = 1;";
 		ExecuteQuery(updateString);
+
+		// 保存clue信息
+		data = 0;
+		for (int i = 0; i < clueData.isActive.Length; i++) {
+			if (clueData.isActive [i]) {
+				data += (1 << i);
+			}
+		}
+		updateString = "UPDATE " + tableName[2] + " SET isactive = "
+			+ data + ",indice = " + clueData.index + " WHERE id = 1;";
+		ExecuteQuery(updateString);
 	}
 
 	public SaveData () {
 		tableName [0] = "story";
 		tableName [1] = "feed";
+		tableName [2] = "clue";
 	}
 
 	public void Load(){
-		Debug.Log ("save");
+//		Debug.Log ("save");
 		try{
 			dbConnection = new SqliteConnection("data source = playerdata.db");
 			dbConnection.Open();
@@ -131,14 +179,12 @@ public class SaveData{
 		catch(Exception e){
 			Debug.Log (e.ToString());
 		}
-		if (!isTableExist (0)) {
-			Debug.Log ("noexist story");
-			CreateTable (0);
-		} 
-		if (!isTableExist (1)) {
-			Debug.Log ("noexist feed");
-			CreateTable (1);
-		} 
+		for (int i = 0; i < TABLENUM; i++) {
+			if (!isTableExist (i)) {
+				Debug.Log ("noexist: " + i);
+				CreateTable (i);
+			} 
+		}
 		LoadPlayerData ();
 	}
 

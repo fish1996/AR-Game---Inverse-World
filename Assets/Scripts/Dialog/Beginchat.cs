@@ -11,7 +11,7 @@ public class Beginchat : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		Debug.Log ("is new");
+//		Debug.Log ("is new");
 		ischat = false;
 		Totalbox = GameObject.Find ("Canvas");
 		Totalbox.SetActive (false);

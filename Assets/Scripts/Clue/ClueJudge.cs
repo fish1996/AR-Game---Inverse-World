@@ -25,11 +25,8 @@ public class ClueJudge : MonoBehaviour {
 
     public string folder = "data/clue1";
     private int choose1 = -1, choose2 = -1;
-    private int all_num = 14;//***线索总数***(选）
     private int choosecluenum = -1;
-    private int index = 7;//***已解锁的最后一个一级线索编号***
-    private int combinationnum = 0;//***线索的组合方式总数***选
-    bool[] isActive;//***来自梦迪的线索状态，现在暂时从一个txt中获取得到***
+	private ClueData clueData = ClueData.getInstance();
 
     private List<Combination> cluecombination = new List<Combination>();
     private Vector3 tPosition = new Vector3(0, 500, 0);
@@ -47,7 +44,7 @@ public class ClueJudge : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //获取对话内容
-        clue = Dialogtext.GetInstance();
+        //clue = Dialogtext.GetInstance();
         //string t = clue.clueIntroduction.cluetxt [0].clueparagraph//获取线索内容
 
         //监听完成和返回按钮
@@ -57,13 +54,12 @@ public class ClueJudge : MonoBehaviour {
         returnone.onClick.AddListener(ReturnButtonDown);
 
         //判断一级线索状态
-        isActive = new bool[all_num];//来自梦迪的线索状态，现在暂时从一个txt中获取得到
-        for (int i = 0; i < all_num; i++)
+		for (int i = 0; i < clueData.all_num; i++)
         {
-            if (i < index)
-                isActive[i] = true;
+			if (i < clueData.index)
+				clueData.isActive[i] = true;
             else
-                isActive[i] = false;
+				clueData.isActive[i] = false;
         }
 
         //读入二级三级线索状态
@@ -74,12 +70,12 @@ public class ClueJudge : MonoBehaviour {
         string[] lineArray = binAsset.text.Split("\r"[0]);
 
         //创建二维数组  
-        combinationnum = lineArray.Length;
-        string[][]Array = new string[combinationnum][];
+		clueData.combinationnum = lineArray.Length;
+		string[][]Array = new string[clueData.combinationnum][];
 
         int a, c1, c2, r;
         //把csv中的数据储存在二位数组中  
-        for (int i = 0; i < combinationnum; i++)
+		for (int i = 0; i < clueData.combinationnum; i++)
         {
             Array[i] = lineArray[i].Split(',');
             a = int.Parse(Array[i][0]);
@@ -88,17 +84,17 @@ public class ClueJudge : MonoBehaviour {
             r = int.Parse(Array[i][3]);
             cluecombination.Add(new Combination(a, c1, c2, r));
             if (a == 1)
-                isActive[r] = true;
+				clueData.isActive[r] = true;
         }
 
         //绘制可见性
         string clue = "Clue";
         string temp;
 
-        for (int i = 0; i < all_num; i++)
+        for (int i = 0; i < clueData.all_num; i++)
         {
             temp = clue + i.ToString();
-            if (isActive[i] == false)
+			if (clueData.isActive[i] == false)
                 GameObject.Find(temp).transform.Translate(tPosition);
         }
 	}
@@ -160,11 +156,11 @@ public class ClueJudge : MonoBehaviour {
             choose2 = tempnum;
         }
         //判断两个choose是否可以拼合
-        for (int i = 0; i < combinationnum; i++)
+		for (int i = 0; i < clueData.combinationnum; i++)
         {
-            if (choose1 == cluecombination[i].clue1 && choose2 == cluecombination[i].clue2 && isActive[cluecombination[i].result] == false)
+			if (choose1 == cluecombination[i].clue1 && choose2 == cluecombination[i].clue2 && clueData.isActive[cluecombination[i].result] == false)
             {
-                isActive[cluecombination[i].result] = true;
+				clueData.isActive[cluecombination[i].result] = true;
                 string temp = "Clue" + cluecombination[i].result.ToString();
                 print(temp);
                 GameObject.Find(temp).transform.Translate(bPosition);
