@@ -59,6 +59,7 @@ public class Getclue : MonoBehaviour {
 		case "Backbutton":
 			Showchat.isgetclue = false;
 			Beginchat.ischat = false;
+			GameObject.Find ("controlchat").GetComponent<Beginchat> ().isachievedialog = true;
 			break;
 
 		default:

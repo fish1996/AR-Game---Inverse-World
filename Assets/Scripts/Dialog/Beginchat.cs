@@ -8,13 +8,15 @@ public class Beginchat : MonoBehaviour {
 	private GameObject Totalbox; //表示整个与闲聊相关的ui
 	public static bool ischat;
 	public float t; //用于控制时间间隔
+	public bool isachievedialog; //是否完成对话
 
 	// Use this for initialization
 	void Awake () {
 //		Debug.Log ("is new");
-		ischat = false;
+		ischat = true;
 		Totalbox = GameObject.Find ("Canvas");
 		Totalbox.SetActive (false);
+		isachievedialog = true;
 	}
 
 
@@ -35,7 +37,20 @@ public class Beginchat : MonoBehaviour {
 				}
 			}
 			if (ischat) {
-				Totalbox.SetActive (true);
+				if (isachievedialog) { //是否已完成上一段对话
+					GameObject.Find ("ManaText").GetComponent<Mana> ().IfChatCanBegin (ischat);
+					bool iscanchat = GameObject.Find ("ManaText").GetComponent<Mana> ().ifBeginChat;
+					if (iscanchat) { //是否足够灵力
+						Totalbox.SetActive (true);
+						isachievedialog = false;
+					} 
+					else {
+						ischat = false;
+					}
+				}
+				else {
+					Totalbox.SetActive (true);
+				}
 			}
 			else {
 				Totalbox.SetActive (false);

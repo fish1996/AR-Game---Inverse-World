@@ -52,9 +52,11 @@ public class Showchat : MonoBehaviour {
 		int fdnum = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].dtxt [data.Dnum - 1].num;
 		if (fdnum == 0) {
 			Memberbutton.GetComponent<Image>().sprite=player ;
+			Content.color = Color.black;
 		} 
 		else if (fdnum == 1) {
 			Memberbutton.GetComponent<Image>().sprite=member1 ;
+			Content.color = Color.white;
 		}
 	}
 
