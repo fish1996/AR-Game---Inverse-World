@@ -70,6 +70,8 @@ public class Showchat : MonoBehaviour {
 				show ();
 			} 
 			else if (data.Dnum == fdnum) {
+				GameObject.Find ("Canvas").GetComponent<Showclue> ().showclueif (data.Pnum, data.Cnum);
+
 				factclue = other.chattext.ptxt [data.Pnum - 1].ctxt [data.Cnum - 1].clue;
 				data.Dnum = 1;
 				if (data.Cnum == fcnum) {
