@@ -6,16 +6,16 @@ using UnityEditor;
 
 public class Mana : MonoBehaviour {
     public Text manaText;
-    public float mana;
     public float increasingSpeed;
     public float consume;
     public bool ifBeginChat;
     private string confirmText;
     private TimeData timeData = TimeData.getInstance();
+    private ManaData manaData = ManaData.getInstance();
 	// Use this for initialization
 	void Start () {
 		consume = 10;
-        manaText.text = "灵力：" + ((int)mana).ToString();
+        manaText.text = "灵力：" + ((int)manaData.mana).ToString();
         ifBeginChat = false;
 	}
 	
@@ -27,9 +27,9 @@ public class Mana : MonoBehaviour {
             timeData.deltaTime = 0;
             manaData.mana += 5;
         }
-        if (mana < 100)
-            mana = mana + Time.deltaTime * increasingSpeed;
-        manaText.text = "灵力：" + ((int)mana).ToString();
+        if (manaData.mana < 100)
+            manaData.mana = manaData.mana + Time.deltaTime * increasingSpeed;
+        manaText.text = "灵力：" + ((int)manaData.mana).ToString();
     }
 
     public void IfChatCanBegin(bool ischat)
@@ -39,12 +39,12 @@ public class Mana : MonoBehaviour {
             confirmText = "每次聊天消耗灵力:" + ((int)consume).ToString();
             if (!EditorUtility.DisplayDialog(confirmText, "确定要消耗灵力吗？", "是", "否"))
                 return;
-            if (mana - consume < 0)
+            if (manaData.mana - consume < 0)
             {
                 EditorUtility.DisplayDialog("抱歉！", "灵力值不够！", "确认");
                 return;
             }
-            mana = mana - consume;
+            manaData.mana = manaData.mana - consume;
             ifBeginChat = true;
         }
     }
