@@ -51,7 +51,7 @@ using System.IO;
 
 public class ClueClick : MonoBehaviour 
 {
-
+    public Camera mycamera;
     // Use this for initialization
     void Start()
     {
@@ -81,7 +81,10 @@ public class ClueClick : MonoBehaviour
         if ((Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Stationary)) || Input.GetMouseButton(0))
         {
             Vector3 screen = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 160);
-            Vector3 worldpoint = Camera.main.ScreenToWorldPoint(screen);
+            print(mycamera.WorldToScreenPoint(new Vector3(3640,-585,0)));
+            //Vector3 worldpoint = Camera.main.ScreenToWorldPoint(screen);
+            Vector3 worldpoint = mycamera.ScreenToWorldPoint(screen);
+            print(worldpoint);
             Collider2D[] col = Physics2D.OverlapPointAll(worldpoint);
             /*print(screen);
             print(Input.mousePosition);
@@ -89,19 +92,21 @@ public class ClueClick : MonoBehaviour
 
             if (col.Length > 0)
             {
-                foreach (Collider2D choosebutton in col)
-                {
-                    print(choosebutton.name);
-                    //do what you want
-                    print("choose success");
-                    int cluenum = -1;
-                    string name = choosebutton.name;
-                    string snum = name.Substring(4, name.Length - 4);
-                    print(snum);
-                    cluenum = int.Parse(snum);
-                    GameObject.Find("Canvas").SendMessage("GetClueNum", cluenum);
-                }
+                Collider2D choosebutton = col[0];
+
+                print(choosebutton.name);
+                //do what you want
+                print("choose success");
+                int cluenum = -1;
+                string name = choosebutton.name;
+                string snum = name.Substring(4, name.Length - 4);
+                print(snum);
+                cluenum = int.Parse(snum);
+                GameObject.Find("Canvas").SendMessage("GetClueNum", cluenum);
+                /*foreach (Collider2D choosebutton in col)*/
             }
+            else
+                print("not find");
         }
     }
 

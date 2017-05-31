@@ -26,11 +26,13 @@ public class ClueJudge : MonoBehaviour {
     public string folder = "data/clue1";
     private int choose1 = -1, choose2 = -1;
     private int choosecluenum = -1;
+    private float touchtime = 0;
 	private ClueData clueData = ClueData.getInstance();
+    private SaveData saveData;////
 
     private List<Combination> cluecombination = new List<Combination>();
-    private Vector3 tPosition = new Vector3(0, 500, 0);
-    private Vector3 bPosition = new Vector3(0, -500, 0);
+    private Vector3 tPosition = new Vector3(0, 5000, 0);
+    private Vector3 bPosition = new Vector3(0, -5000, 0);
     public GameObject FinishButton;
     public GameObject ReturnButton;
     public Dialogtext clue;
@@ -39,6 +41,16 @@ public class ClueJudge : MonoBehaviour {
     {
         choosecluenum = cluenum;
         print(choosecluenum + " " + cluenum);
+    }////
+    void Awake()
+    {
+        saveData = new SaveData();
+        saveData.Load();
+    }/////
+    void OnApplicationQuit()
+    {
+        saveData.Save();
+        saveData.CloseConnection();
     }
 
 	// Use this for initialization
@@ -102,11 +114,16 @@ public class ClueJudge : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        if (choosecluenum!=-1)
+        if (touchtime >= 1)
         {
-            ButtonJudge();
-            choosecluenum = -1;
+            if (choosecluenum != -1)
+            {
+                ButtonJudge();
+                choosecluenum = -1;
+            }
+            touchtime = 0;
         }
+        touchtime += Time.deltaTime; 
 	}
 
     private void ButtonJudge()
@@ -115,31 +132,31 @@ public class ClueJudge : MonoBehaviour {
         string temp = clue + choosecluenum.ToString();
         //Sprite spr1 = Resources.Load<Sprite>("image/fire"); 
         //Sprite spr2 = Resources.Load<Sprite>("image/unfire");
-        Color white = new Color(255, 255, 255);
-        Color red = new Color(255, 0, 0);
+        Color white = GameObject.Find("Clue1").GetComponent<UISprite>().color;
+        Color red = new Color(255, 0, 0, (float)0.05);
 
         if (GameObject.Find(temp).activeSelf == true)
         {
-            Button choosebutton = GameObject.Find(temp).GetComponent<Button>();
+            UISprite choosebutton = GameObject.Find(temp).GetComponent<UISprite>();
 
             if (choose1 == choosecluenum)
             {
                 choose1 = -1;
-                //choosebutton.GetComponent<Image>().color = white;
+                choosebutton.color = white;
             }
             else if (choose2 == choosecluenum)
             {
                 choose2 = -1;
-                //choosebutton.GetComponent<Image>().color = white;
+                choosebutton.color = white;
             }
             else if (choose1 == -1)
             {
-                //choosebutton.GetComponent<Image>().color = red;
+                choosebutton.color = red;
                 choose1 = choosecluenum;
             }
             else if (choose2 == -1)
             {
-                //choosebutton.GetComponent<Image>().color = red;
+                choosebutton.color = red;
                 choose2 = choosecluenum;
             }
             else
@@ -179,10 +196,10 @@ public class ClueJudge : MonoBehaviour {
         Color white = new Color(255, 255, 255);
 
         string temp = "Clue" + choose1.ToString();
-        Button choosebutton = GameObject.Find(temp).GetComponent<Button>();
+        //Button choosebutton = GameObject.Find(temp).GetComponent<Button>();
         //choosebutton.GetComponent<Image>().color = white;
         temp = "Clue" + choose2.ToString();
-        choosebutton = GameObject.Find(temp).GetComponent<Button>();
+        //choosebutton = GameObject.Find(temp).GetComponent<Button>();
         //choosebutton.GetComponent<Image>().color = white;
 
         choose1 = -1;
