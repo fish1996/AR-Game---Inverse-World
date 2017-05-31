@@ -5,13 +5,14 @@ using System.IO;
 using System;
 
 public class SaveData{
-	private const int TABLENUM = 3;
+	private const int TABLENUM = 4;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
 	private StoryData storyData = StoryData.getInstance();
 	private FeedData feedData = FeedData.getInstance ();
 	private ClueData clueData = ClueData.getInstance ();
+    private ManaData manaData = ManaData.getInstance ();
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -90,7 +91,16 @@ public class SaveData{
 			Debug.Log ("feed " + i + " " + clueData.isActive [i]);
 			data >>= 1;
 		}
-	}
+        //加载mana data
+        query = "SELECT * FROM "
+            + tableName[3];
+        dataReader = ExecuteQuery(query);
+        while (dataReader.Read())
+        {
+            manaData.mana = dataReader.GetInt32(dataReader.GetOrdinal("mana"));
+        }
+
+    }
 
 	private void CreateTable(int id) {
 		string query;
@@ -130,7 +140,18 @@ public class SaveData{
 				ExecuteQuery (query);			
 				break;
 			}
-		}
+        case 3:
+            {
+                    //建表 : mana
+                query = "CREATE TABLE " + tableName[3] + "(id INT PRIMARY KEY NOT NULL,mana FLOAT NOT NULL);";
+                ExecuteQuery(query);
+
+                //向mana存入初始数据
+                query = "INSERT INTO " + tableName[3] + " values(1,80);";
+                ExecuteQuery(query);
+                break;
+            }
+        }
 	}
 		
 	public void Save() {
@@ -162,12 +183,18 @@ public class SaveData{
 		updateString = "UPDATE " + tableName[2] + " SET isactive = "
 			+ data + ",indice = " + clueData.index + " WHERE id = 1;";
 		ExecuteQuery(updateString);
-	}
+
+        // 保存mana信息
+        updateString = "UPDATE " + tableName[3] + " SET mana = "
+            + manaData.mana + " WHERE id = 1;";
+        ExecuteQuery(updateString);
+    }
 
 	public SaveData () {
 		tableName [0] = "story";
 		tableName [1] = "feed";
 		tableName [2] = "clue";
+        tableName [3] = "mana";
 	}
 
 	public void Load(){

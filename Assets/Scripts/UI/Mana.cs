@@ -14,7 +14,6 @@ public class Mana : MonoBehaviour {
 	private ManaData manaData = ManaData.getInstance();
 	// Use this for initialization
 	void Start () {
-	        manaData.mana = 80;
 		increasingSpeed = 0.01f;
 		consume = 10;
 		manaText.text = "¡È¡¶£∫" + ((int)manaData.mana).ToString();
