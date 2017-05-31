@@ -59,9 +59,9 @@ public class Beginchat : MonoBehaviour {
 					Totalbox.SetActive (true);
 				}
 			}
-			else {
+			/*else {
 				Totalbox.SetActive (false);
-			}
+			}*/
 		}
 		t+=Time.deltaTime;
 	}
