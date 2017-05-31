@@ -14,7 +14,6 @@ public class Mana : MonoBehaviour {
     private TimeData timeData = TimeData.getInstance();
 	// Use this for initialization
 	void Start () {
-        mana = 80;
 		consume = 10;
         manaText.text = "¡È¡¶£∫" + ((int)mana).ToString();
         ifBeginChat = false;
