@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DebugButton : MonoBehaviour {
 
 	private StoryData storyData = StoryData.getInstance ();
+	private ManaData manaData = ManaData.getInstance();
 	// Use this for initialization
 	void Start () {
 		Button btn = this.GetComponent<Button>();
@@ -37,5 +38,7 @@ public class DebugButton : MonoBehaviour {
 		storyData.Pnum = 1;
 		storyData.Dnum = 1;
 		storyData.Cnum = 1;
+
+		manaData.mana = 80;
 	}
 }

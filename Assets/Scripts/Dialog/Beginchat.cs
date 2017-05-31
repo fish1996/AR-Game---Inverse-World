@@ -21,6 +21,16 @@ public class Beginchat : MonoBehaviour {
 		isachievedialog = true;
 	}
 
+	public void ifcanchat(bool iscanchat)
+	{
+		if (iscanchat) { //是否足够灵力
+			Totalbox.SetActive (true);
+			isachievedialog = false;
+		} 
+		else {
+			ischat = false;
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -46,22 +56,16 @@ public class Beginchat : MonoBehaviour {
 			if (ischat) {
 				if (isachievedialog) { //是否已完成上一段对话
 					GameObject.Find ("ManaText").GetComponent<Mana> ().IfChatCanBegin (ischat);
-					bool iscanchat = GameObject.Find ("ManaText").GetComponent<Mana> ().ifBeginChat;
-					if (iscanchat) { //是否足够灵力
-						Totalbox.SetActive (true);
-						isachievedialog = false;
-					} 
-					else {
-						ischat = false;
-					}
 				}
 				else {
 					Totalbox.SetActive (true);
 				}
 			}
-			/*else {
-				Totalbox.SetActive (false);
-			}*/
+			else { 
+				if (isachievedialog) {
+					Totalbox.SetActive (false);
+				} //当已完成一段对话时关闭对话框
+			}
 		}
 		t+=Time.deltaTime;
 	}

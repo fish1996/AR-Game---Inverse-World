@@ -78,7 +78,7 @@ public class Showchat : MonoBehaviour {
 				data.Dnum = 1;
 				if (data.Cnum == fcnum) {
 					data.Cnum = 1;
-					data.Pnum++;
+					//data.Pnum++;
 				} 
 				else {
 					data.Cnum++;
@@ -110,7 +110,7 @@ public class Showchat : MonoBehaviour {
 				data.Dnum = 1;
 				if (data.Cnum == fcnum) {
 					data.Cnum = 1;
-					data.Pnum++;
+					//data.Pnum++;
 				} 
 				else {
 					data.Cnum++;
