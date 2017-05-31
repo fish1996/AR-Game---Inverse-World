@@ -5,14 +5,15 @@ using System.IO;
 using System;
 
 public class SaveData{
-	private const int TABLENUM = 4;
+	private const int TABLENUM = 5;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
-	private StoryData storyData = StoryData.getInstance();
+	private StoryData storyData = StoryData.getInstance ();
 	private FeedData feedData = FeedData.getInstance ();
 	private ClueData clueData = ClueData.getInstance ();
     private ManaData manaData = ManaData.getInstance ();
+    private TimeData timeData = TimeData.getInstance ();
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -100,57 +101,80 @@ public class SaveData{
             manaData.mana = dataReader.GetFloat(dataReader.GetOrdinal("mana"));
         }
 
+        //加载time data
+        query = "SELECT * FROM "
+            + tableName[4];
+        dataReader = ExecuteQuery(query);
+        String time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        while (dataReader.Read())
+        {
+            time = dataReader.GetString(dataReader.GetOrdinal("time"));
+        }
+        timeData.time = Convert.ToDateTime(time);
+
     }
 
 	private void CreateTable(int id) {
 		string query;
 		switch(id){
 		case 0:
-			{
-				//建表 : story
-				query = "CREATE TABLE " + tableName [0] + "(id INT PRIMARY KEY NOT NULL,dialogNum INT NOT NULL," +
-				"clueNum INT NOT NULL, chapterNum INT NOT NULL);";
-				ExecuteQuery (query);
-				//向story存入初始数据
-				query = "INSERT INTO " + tableName[0] + " values(1,1,1,1);";
-				ExecuteQuery (query);
-				break;
-			}
-		case 1:
-			{
-				//建表 : feed
-				query = "CREATE TABLE " + tableName[1] + "(id INT PRIMARY KEY NOT NULL,num INT NOT NULL," +
-					"data INT NOT NULL);";
-				ExecuteQuery (query);
+                {
+                    //建表 : story
+                    query = "CREATE TABLE " + tableName[0] + "(id INT PRIMARY KEY NOT NULL,dialogNum INT NOT NULL," +
+                    "clueNum INT NOT NULL, chapterNum INT NOT NULL);";
+                    ExecuteQuery(query);
+                    //向story存入初始数据
+                    query = "INSERT INTO " + tableName[0] + " values(1,1,1,1);";
+                    ExecuteQuery(query);
+                    break;
+                }
+            case 1:
+                {
+                    //建表 : feed
+                    query = "CREATE TABLE " + tableName[1] + "(id INT PRIMARY KEY NOT NULL,num INT NOT NULL," +
+                        "data INT NOT NULL);";
+                    ExecuteQuery(query);
 
-				//向feed存入初始数据
-				query = "INSERT INTO " + tableName[1] + " values(1,12,0);";
-				ExecuteQuery (query);
-				break;
-			}
-		case 2:
-			{
-				//建表 : clue
-				query = "CREATE TABLE " + tableName[2] + "(id INT PRIMARY KEY NOT NULL,cluenum INT NOT NULL," +
-					"indice INT NOT NULL, combinationnum INT NOT NULL, isactive INT NOT NULL);";
-				ExecuteQuery (query);
+                    //向feed存入初始数据
+                    query = "INSERT INTO " + tableName[1] + " values(1,12,0);";
+                    ExecuteQuery(query);
+                    break;
+                }
+            case 2:
+                {
+                    //建表 : clue
+                    query = "CREATE TABLE " + tableName[2] + "(id INT PRIMARY KEY NOT NULL,cluenum INT NOT NULL," +
+                        "indice INT NOT NULL, combinationnum INT NOT NULL, isactive INT NOT NULL);";
+                    ExecuteQuery(query);
 
-				//向clue存入初始数据
-				query = "INSERT INTO " + tableName[2] + " values(1,14,0,12,0);";
-				ExecuteQuery (query);			
-				break;
-			}
-        case 3:
-            {
+                    //向clue存入初始数据
+                    query = "INSERT INTO " + tableName[2] + " values(1,14,0,12,0);";
+                    ExecuteQuery(query);
+                    break;
+                }
+            case 3:
+                {
                     //建表 : mana
-                query = "CREATE TABLE " + tableName[3] + "(id INT PRIMARY KEY NOT NULL,mana FLOAT NOT NULL);";
-                ExecuteQuery(query);
+                    query = "CREATE TABLE " + tableName[3] + "(id INT PRIMARY KEY NOT NULL,mana FLOAT NOT NULL);";
+                    ExecuteQuery(query);
 
-                //向mana存入初始数据
-                query = "INSERT INTO " + tableName[3] + " values(1,80);";
-                ExecuteQuery(query);
-                break;
-            }
+                    //向mana存入初始数据
+                    query = "INSERT INTO " + tableName[3] + " values(1,80);";
+                    ExecuteQuery(query);
+                    break;
+                }
+            case 4:
+                {
+                    //建表 : time
+                    query = "CREATE TABLE " + tableName[4] + "(id INT PRIMARY KEY NOT NULL,time TEXT NOT NULL);";
+                    ExecuteQuery(query);
+
+                    String time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    //向mana存入初始数据
+                    query = "INSERT INTO " + tableName[4] + " values(1,'" + time + "');";
+                    ExecuteQuery(query);
+                    break;
+                }
         }
 	}
 		
@@ -188,6 +212,11 @@ public class SaveData{
         updateString = "UPDATE " + tableName[3] + " SET mana = "
             + manaData.mana + " WHERE id = 1;";
         ExecuteQuery(updateString);
+
+        // 保存时间
+        updateString = "UPDATE " + tableName[4] + " SET time = '" 
+            + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE id = 1;";
+        ExecuteQuery(updateString);
     }
 
 	public SaveData () {
@@ -195,6 +224,7 @@ public class SaveData{
 		tableName [1] = "feed";
 		tableName [2] = "clue";
         tableName [3] = "mana";
+        tableName [4] = "time";
 	}
 
 	public void Load(){
