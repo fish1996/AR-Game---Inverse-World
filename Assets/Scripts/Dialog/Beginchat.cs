@@ -28,9 +28,11 @@ public class Beginchat : MonoBehaviour {
 			t = 0;
 		}
 		if (t >= 1 && isgetmember) {
-			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+			/*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
 			{
-				Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+				Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);*/
+			if (Input.GetMouseButton(0)) {
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit hit;
 				if (Physics.Raycast(ray, out hit))
 				{
@@ -57,9 +59,9 @@ public class Beginchat : MonoBehaviour {
 					Totalbox.SetActive (true);
 				}
 			}
-			else {
+			/*else {
 				Totalbox.SetActive (false);
-			}
+			}*/
 		}
 		t+=Time.deltaTime;
 	}
