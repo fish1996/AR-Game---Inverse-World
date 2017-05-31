@@ -1,4 +1,4 @@
-Ôªøusing System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,40 +6,40 @@ using UnityEditor;
 
 public class Mana : MonoBehaviour {
 	public Text manaText;
-	public float mana;
 	public float increasingSpeed;
 	public float consume;
 	public bool ifBeginChat;
 	private string confirmText;
+	private ManaData manaData = ManaData.getInstance();
 	// Use this for initialization
 	void Start () {
-		mana = 80;
+	        manaData.mana = 80;
 		increasingSpeed = 0.01f;
 		consume = 10;
-		manaText.text = "ÁÅµÂäõÔºö" + ((int)mana).ToString();
+		manaText.text = "¡È¡¶£∫" + ((int)manaData.mana).ToString();
 		ifBeginChat = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (mana < 100)
-			mana = mana + Time.deltaTime * increasingSpeed;
-		manaText.text = "ÁÅµÂäõÔºö" + ((int)mana).ToString();
+		if (manaData.mana < 100)
+			manaData.mana = manaData.mana + Time.deltaTime * increasingSpeed;
+		manaText.text = "¡È¡¶£∫" + ((int)manaData.mana).ToString();
 	}
 
 	public void IfChatCanBegin(bool ischat)
 	{
 		if (ischat)
 		{
-			confirmText = "ÊØèÊ¨°ËÅäÂ§©Ê∂àËÄóÁÅµÂäõ:" + ((int)consume).ToString();
-			if (!EditorUtility.DisplayDialog(confirmText, "Á°ÆÂÆöË¶ÅÊ∂àËÄóÁÅµÂäõÂêóÔºü", "ÊòØ", "Âê¶"))
+			confirmText = "√ø¥Œ¡ƒÃÏœ˚∫ƒ¡È¡¶:" + ((int)consume).ToString();
+			if (!EditorUtility.DisplayDialog(confirmText, "»∑∂®“™œ˚∫ƒ¡È¡¶¬£ø", " «", "∑Ò"))
 				return;
-			if (mana - consume < 0)
+			if (manaData.mana - consume < 0)
 			{
-				EditorUtility.DisplayDialog("Êä±Ê≠âÔºÅ", "ÁÅµÂäõÂÄº‰∏çÂ§üÔºÅ", "Á°ÆËÆ§");
+				EditorUtility.DisplayDialog("±ß«∏£°", "¡È¡¶÷µ≤ªπª£°", "»∑»œ");
 				return;
 			}
-			mana = mana - consume;
+			manaData.mana = manaData.mana - consume;
 			ifBeginChat = true;
 		}
 	}
