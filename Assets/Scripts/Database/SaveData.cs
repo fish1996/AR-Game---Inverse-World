@@ -97,7 +97,7 @@ public class SaveData{
         dataReader = ExecuteQuery(query);
         while (dataReader.Read())
         {
-            manaData.mana = dataReader.GetInt32(dataReader.GetOrdinal("mana"));
+            manaData.mana = dataReader.GetFloat(dataReader.GetOrdinal("mana"));
         }
 
     }
