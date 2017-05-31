@@ -10,6 +10,7 @@ public class Mana : MonoBehaviour {
 	public float consume;
 	public bool ifBeginChat;
 	private string confirmText;
+	private float time = 0;
 	private ManaData manaData = ManaData.getInstance();
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,11 @@ public class Mana : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		time += Time.deltaTime;
+		if(time > 600) {
+			time = 0;
+			manaData.mana += 5;
+		}
 		if (manaData.mana < 100)
 			manaData.mana = manaData.mana + Time.deltaTime * increasingSpeed;
 		manaText.text = "ÁéÁ¦£º" + ((int)manaData.mana).ToString();
