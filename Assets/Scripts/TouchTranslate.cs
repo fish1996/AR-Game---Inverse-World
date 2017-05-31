@@ -22,9 +22,13 @@ public class TouchTranslate : MonoBehaviour
         {
 			GameObject.Find ("controlchat").GetComponent<Beginchat> ().isgetmember = true;
         }
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+
+		/*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);*/
+		if (Input.GetMouseButton(0)) {
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
