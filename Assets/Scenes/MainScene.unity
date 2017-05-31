@@ -556,7 +556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "\u7075\u529B\uFF1A"
 --- !u!222 &238710292
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -571,11 +571,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 238710289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b939b0c135f4a15b575fe62aaf8d9b, type: 3}
+  m_Script: {fileID: 11500000, guid: af5b2729471325c4e927b7d7a7691936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manaText: {fileID: 238710291}
-  mana: 0
   increasingSpeed: 0
   consume: 0
   ifBeginChat: 0
@@ -2089,6 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: 0
   isachievedialog: 0
+  isgetmember: 0
 --- !u!4 &1494380948
 Transform:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class TouchTranslate : MonoBehaviour
     {
         if (TranslateStart)
         {
+			GameObject.Find ("controlchat").GetComponent<Beginchat> ().isgetmember = true;
         }
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
        {

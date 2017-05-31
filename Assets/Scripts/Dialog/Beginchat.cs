@@ -9,11 +9,13 @@ public class Beginchat : MonoBehaviour {
 	public static bool ischat;
 	public float t; //用于控制时间间隔
 	public bool isachievedialog; //是否完成对话
+	public bool isgetmember; //是否已经得到了人物
 
 	// Use this for initialization
 	void Awake () {
 //		Debug.Log ("is new");
-		ischat = true;
+		isgetmember=false;
+		ischat = false;
 		Totalbox = GameObject.Find ("Canvas");
 		Totalbox.SetActive (false);
 		isachievedialog = true;
@@ -22,7 +24,10 @@ public class Beginchat : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (t >= 1) {
+		if (!isgetmember) {
+			t = 0;
+		}
+		if (t >= 1 && isgetmember) {
 			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
 			{
 				Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
