@@ -960,7 +960,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 385566862}
   m_LocalRotation: {x: 1.9106855e-15, y: 0.00000004371139, z: 0.00000004371139, w: 1}
-  m_LocalPosition: {x: 1087185, y: 31729, z: -57687}
+  m_LocalPosition: {x: 1289560, y: 31729, z: -57687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 711161268}
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3012
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -2035,7 +2035,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114124548690537912, guid: 89eac9ad1db7a1a41a95aaf0613f004f, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: "_0005_\u4ECA\u65E5\u4EFB\u52A1-\u5C55\u5F00"
   mFillCenter: 1
 --- !u!1 &717655085
@@ -5598,7 +5598,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114124548690537912, guid: 89eac9ad1db7a1a41a95aaf0613f004f, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: _0003_power
   mFillCenter: 1
 --- !u!1 &1729030054
@@ -5682,7 +5682,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114124548690537912, guid: 89eac9ad1db7a1a41a95aaf0613f004f, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: "_0006_\u4ECA\u65E5\u4EFB\u52A1--\u6536\u8D77"
   mFillCenter: 1
 --- !u!1 &1732520035
@@ -6703,7 +6703,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114124548690537912, guid: 89eac9ad1db7a1a41a95aaf0613f004f, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: _0004_b1
   mFillCenter: 1
 --- !u!1 &1971638870

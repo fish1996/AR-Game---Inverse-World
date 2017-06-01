@@ -7,6 +7,9 @@ public class DebugButton : MonoBehaviour {
 
 	private StoryData storyData = StoryData.getInstance ();
 	private ManaData manaData = ManaData.getInstance();
+	private PlaceData placeData = PlaceData.getInstance ();
+	private FeedData feedData = FeedData.getInstance ();
+	private ClueData clueData = ClueData.getInstance ();
 	// Use this for initialization
 	void Start () {
 		Button btn = this.GetComponent<Button>();
@@ -38,7 +41,14 @@ public class DebugButton : MonoBehaviour {
 		storyData.Pnum = 1;
 		storyData.Dnum = 1;
 		storyData.Cnum = 1;
-
+		placeData.isOnTheMarker = true;
 		manaData.mana = 80;
+		for (int i = 0; i < feedData.hadChoose.Length; i++) {
+			feedData.hadChoose [i] = false;
+		}
+		for (int i = 0; i < clueData.isActive.Length; i++) {
+			clueData.isActive [i] = false;
+		}
+		clueData.index = 0;
 	}
 }

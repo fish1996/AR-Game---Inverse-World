@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 public class SaveData{
-	private const int TABLENUM = 5;
+	private const int TABLENUM = 6;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
@@ -14,6 +14,7 @@ public class SaveData{
 	private ClueData clueData = ClueData.getInstance ();
     private ManaData manaData = ManaData.getInstance ();
     private TimeData timeData = TimeData.getInstance ();
+	private PlaceData placeData = PlaceData.getInstance ();
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -110,8 +111,24 @@ public class SaveData{
         {
             time = dataReader.GetString(dataReader.GetOrdinal("time"));
         }
+		Debug.Log ("last time=" + time);
         timeData.time = Convert.ToDateTime(time);
 
+		//加载isonthremarker data
+		query = "SELECT * FROM "
+			+ tableName[5];
+		dataReader = ExecuteQuery(query);
+
+		while (dataReader.Read())
+		{
+			data = dataReader.GetInt32(dataReader.GetOrdinal("isonthemarker"));
+		}
+		Debug.Log ("isonthemarker=" + data);
+		if (data == 0) {
+			placeData.isOnTheMarker = false;
+		} else {
+			placeData.isOnTheMarker = true;
+		}
     }
 
 	private void CreateTable(int id) {
@@ -170,11 +187,22 @@ public class SaveData{
                     ExecuteQuery(query);
 
                     String time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    //向mana存入初始数据
+                    //向time存入初始数据
                     query = "INSERT INTO " + tableName[4] + " values(1,'" + time + "');";
                     ExecuteQuery(query);
                     break;
                 }
+		   case 5:
+		    	{
+		    		//建表 : place
+		    		query = "CREATE TABLE " + tableName[5] + "(id INT PRIMARY KEY NOT NULL,isonthemarker INT NOT NULL);";
+		    		ExecuteQuery(query);
+		    
+		    		//向place存入初始数据
+		    		query = "INSERT INTO " + tableName[5] + " values(1,1);";
+		    		ExecuteQuery(query);
+		    		break;
+		    	}
         }
 	}
 		
@@ -217,6 +245,17 @@ public class SaveData{
         updateString = "UPDATE " + tableName[4] + " SET time = '" 
             + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE id = 1;";
         ExecuteQuery(updateString);
+
+		if (placeData.isOnTheMarker) {
+			data = 1;
+		} 
+		else {
+			data = 0;
+		}
+		// 保存位置
+		updateString = "UPDATE " + tableName[5] + " SET isonthemarker = " 
+			+ data + " WHERE id = 1;";
+		ExecuteQuery(updateString);
     }
 
 	public SaveData () {
@@ -225,6 +264,7 @@ public class SaveData{
 		tableName [2] = "clue";
         tableName [3] = "mana";
         tableName [4] = "time";
+		tableName [5] = "place";
 	}
 
 	public void Load(){

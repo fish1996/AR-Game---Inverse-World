@@ -65,6 +65,7 @@ public class ClueJudge : MonoBehaviour {
         finishone.onClick.AddListener(FinishButtonDown);
         returnone.onClick.AddListener(ReturnButtonDown);
 
+		clueData.index = 5;
         //判断一级线索状态
 		for (int i = 0; i < clueData.all_num; i++)
         {
