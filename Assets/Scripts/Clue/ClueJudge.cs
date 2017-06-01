@@ -129,6 +129,7 @@ public class ClueJudge : MonoBehaviour {
 
     private void ButtonJudge()
     {
+		Debug.Log ("Judge");
         string clue = "Clue";
         string temp = clue + choosecluenum.ToString();
         //Sprite spr1 = Resources.Load<Sprite>("image/fire"); 
