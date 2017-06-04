@@ -992,6 +992,7 @@ GameObject:
   - component: {fileID: 395204606}
   - component: {fileID: 395204607}
   - component: {fileID: 395204608}
+  - component: {fileID: 395204604}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1175,6 +1176,20 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &395204604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395204598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68845622ddf9edd439e7d17e234ad182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 385566866}
+  LeftButton: {fileID: 1509406641}
+  RightButton: {fileID: 930305085}
 --- !u!114 &395204606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1415,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -2434,7 +2449,6 @@ GameObject:
   - component: {fileID: 930305087}
   - component: {fileID: 930305086}
   - component: {fileID: 930305085}
-  - component: {fileID: 930305084}
   m_Layer: 5
   m_Name: right
   m_TagString: Untagged
@@ -2461,20 +2475,6 @@ RectTransform:
   m_AnchoredPosition: {x: 214.1, y: -165.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &930305084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 930305082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 475cbc89c31cee448a51241900d5e669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 385566866}
-  LeftButton: {fileID: 1509406641}
-  RightButton: {fileID: 930305085}
 --- !u!114 &930305085
 MonoBehaviour:
   m_ObjectHideFlags: 0

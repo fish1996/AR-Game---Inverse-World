@@ -5,39 +5,33 @@ using UnityEngine.UI;
 
 public class CameraMove : MonoBehaviour {
 
-    public Camera camera;
-    public Button LeftButton;
-    public Button RightButton;
+    public new Camera camera;
 
 	// Use this for initialization
 	void Start () {
-        //LeftButton.on
-        LeftButton.onClick.AddListener(delegate()
-        {
-            LeftMove();
-        });
-        RightButton.onClick.AddListener(delegate()
-        {
-            RightMove();
-        });
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void OnGUI() {
+		if(GUI.RepeatButton(new Rect(50,350,100,20),"Left")){
+			LeftMove();
+		}
+		if(GUI.RepeatButton(new Rect(500,350,100,20),"Right")){
+			RightMove();
+		}
 	}
 
     void LeftMove()
     {
         Vector3 nowp = camera.transform.position;
-        if (nowp.x > -1719785)
+        if (nowp.x > -4707)
             camera.transform.Translate(new Vector3(-100, 0, 0));
     }
 
     void RightMove()
     {
         Vector3 nowp = camera.transform.position;
-        if (nowp.x < 1293211)
+        if (nowp.x < 3392)
             camera.transform.Translate(new Vector3(100, 0, 0));
     }
 }

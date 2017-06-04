@@ -25,18 +25,22 @@ public class ClueJudge : MonoBehaviour {
 
     public string folder = "data/clue1";
     private int choose1 = -1, choose2 = -1;
-    private int choosecluenum = -1;
 	private ClueData clueData = ClueData.getInstance();
 	private StartData startData = StartData.getInstance();
     private SaveData saveData;////
+	private bool isAppear = false;
+	private const int MAXCOUNT = 100;
 
     private List<Combination> cluecombination = new List<Combination>();
     private Vector3 tPosition = new Vector3(0, 5000, 0);
     private Vector3 bPosition = new Vector3(0, -5000, 0);
+	private Color white;
+	private Color originalColor;
+	private GameObject appearObj;
+	private int appearCount;
     public GameObject FinishButton;
     public GameObject ReturnButton;
     public Dialogtext clue;
-	private Color white;
 
     void Awake()
     {
@@ -71,7 +75,7 @@ public class ClueJudge : MonoBehaviour {
             else
 				clueData.isActive[i] = false;
         }
-
+			
         //读入二级三级线索状态
         //读取文件  
         TextAsset binAsset = Resources.Load(folder, typeof(TextAsset)) as TextAsset;//bug?
@@ -108,6 +112,20 @@ public class ClueJudge : MonoBehaviour {
                 GameObject.Find(temp).transform.Translate(tPosition);
         }
 	}
+
+	void Update()
+	{
+		if (isAppear) {
+			if (appearCount == MAXCOUNT) {
+				isAppear = false;
+			}
+			appearObj.GetComponent<UISprite> ().color = new Color(originalColor.r,originalColor.g,originalColor.b,
+				originalColor.a*(1.0f*appearCount / MAXCOUNT));
+			appearCount++;
+		}
+
+	}
+
 
     public void ButtonJudge()
     {
@@ -150,13 +168,13 @@ public class ClueJudge : MonoBehaviour {
     }
 
 	private void clearColor(){
-		choose1 = choose2 = -1;
 		string temp2 = "Clue" + choose1.ToString();
 		UISprite choosebutton = GameObject.Find(temp2).GetComponent<UISprite>();
 		choosebutton.color = white;
 		temp2 = "Clue" + choose2.ToString();
 		choosebutton = GameObject.Find(temp2).GetComponent<UISprite>();
 		choosebutton.color = white;
+		choose1 = choose2 = -1;
 	}
 
     private void FinishButtonDown()
@@ -180,8 +198,11 @@ public class ClueJudge : MonoBehaviour {
 				clueData.isActive[cluecombination[i].result] = true;
                 string temp = "Clue" + cluecombination[i].result.ToString();
                 print(temp);
-                GameObject.Find(temp).transform.Translate(bPosition);
-
+				appearObj = GameObject.Find (temp);
+				appearObj.transform.Translate(bPosition); 
+				originalColor = appearObj.GetComponent<UISprite> ().color;
+				appearCount = 0;
+				isAppear = true;
                 return;
             }
         }
