@@ -25,7 +25,7 @@ public struct Points
 public class Choose : MonoBehaviour {
 
     public UILabel guit;
-    public Camera camera;
+    public new Camera camera;
     public GameObject UI;
     public GameObject ShowClue;
 

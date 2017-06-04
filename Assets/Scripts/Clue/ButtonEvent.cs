@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonEvent : MonoBehaviour {
-	private const int NUM = 15;
+	private const int NUM = 31;
 	private float acc = 0.1f;
 	private float[] speed = new float[NUM];
 	private Vector2[] vector = new Vector2[NUM];
@@ -35,14 +35,14 @@ public class ButtonEvent : MonoBehaviour {
 					vector [i].y = -vector [i].y;
 					obj [i].GetComponent<Rigidbody> ().MovePosition (new Vector3(LocalPos.x, 598, LocalPos.z));
 				}
-				if (LocalPos.x < 1) { //现在还没有人知道小于什么
+				if (LocalPos.x < -5050) { 
+					vector [i].x = -vector [i].x;
+					obj [i].GetComponent<Rigidbody> ().MovePosition (new Vector3(-5048, LocalPos.y, LocalPos.z));
 				} 
 				else if (LocalPos.x > 4650) {
 					vector [i].x = -vector [i].x;
 					obj [i].GetComponent<Rigidbody> ().MovePosition (new Vector3(4648, LocalPos.y, LocalPos.z));
 				}
-					
-				Vector3 LocalForward = transform.TransformPoint (Vector3.forward * speed [i]);
 				obj[i].GetComponent<Rigidbody> ().velocity = new Vector3 (vector [i].x*speed[i], vector[i].y*speed[i], 0);
 			}
 
