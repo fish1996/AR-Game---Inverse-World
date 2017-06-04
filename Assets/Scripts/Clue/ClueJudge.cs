@@ -26,8 +26,8 @@ public class ClueJudge : MonoBehaviour {
     public string folder = "data/clue1";
     private int choose1 = -1, choose2 = -1;
     private int choosecluenum = -1;
-    private float touchtime = 0;
 	private ClueData clueData = ClueData.getInstance();
+	private StartData startData = StartData.getInstance();
     private SaveData saveData;////
 
     private List<Combination> cluecombination = new List<Combination>();
@@ -36,17 +36,14 @@ public class ClueJudge : MonoBehaviour {
     public GameObject FinishButton;
     public GameObject ReturnButton;
     public Dialogtext clue;
+	private Color white;
 
-    private void GetClueNum(int cluenum)
-    {
-        choosecluenum = cluenum;
-        print(choosecluenum + " " + cluenum);
-    }////
     void Awake()
     {
         saveData = new SaveData();
         saveData.Load();
-    }/////
+    }
+
     void OnApplicationQuit()
     {
         saveData.Save();
@@ -58,12 +55,12 @@ public class ClueJudge : MonoBehaviour {
         //获取对话内容
         //clue = Dialogtext.GetInstance();
         //string t = clue.clueIntroduction.cluetxt [0].clueparagraph//获取线索内容
-
+		white = GameObject.Find("Clue1").GetComponent<UISprite>().color;
         //监听完成和返回按钮
         Button finishone = (Button)FinishButton.GetComponent<Button>();
         Button returnone = (Button)ReturnButton.GetComponent<Button>();
         finishone.onClick.AddListener(FinishButtonDown);
-        returnone.onClick.AddListener(ReturnButtonDown);
+        //returnone.onClick.AddListener(ReturnButtonDown);
 
 		clueData.index = 5;
         //判断一级线索状态
@@ -111,63 +108,62 @@ public class ClueJudge : MonoBehaviour {
                 GameObject.Find(temp).transform.Translate(tPosition);
         }
 	}
-	
-	// Update is called once per frame
-    void Update()
-    {
-        if (touchtime >= 1)
-        {
-            if (choosecluenum != -1)
-            {
-                ButtonJudge();
-                choosecluenum = -1;
-            }
-            touchtime = 0;
-        }
-        touchtime += Time.deltaTime; 
-	}
 
-    private void ButtonJudge()
+    public void ButtonJudge()
     {
 		Debug.Log ("Judge");
         string clue = "Clue";
-        string temp = clue + choosecluenum.ToString();
+		string temp = clue + startData.clueNum.ToString();
         //Sprite spr1 = Resources.Load<Sprite>("image/fire"); 
         //Sprite spr2 = Resources.Load<Sprite>("image/unfire");
-        Color white = GameObject.Find("Clue1").GetComponent<UISprite>().color;
+        
         Color red = new Color(255, 0, 0, (float)0.05);
 
         if (GameObject.Find(temp).activeSelf == true)
         {
             UISprite choosebutton = GameObject.Find(temp).GetComponent<UISprite>();
+			Debug.Log ("choose1=" + choose1 + " choose2=" + choose2 + " cluenum=" + startData.clueNum);
+			if (choose1 == startData.clueNum)
+			{
+				choose1 = -1;
+				choosebutton.color = white;
+			}
+			else if (choose2 == startData.clueNum)
+			{
+				choose2 = -1;
+				choosebutton.color = white;
+			}
+			else if (choose1 == -1)
+			{
+				choosebutton.color = red;
+				choose1 = startData.clueNum;
+			}
+			else if (choose2 == -1)
+			{
+				choosebutton.color = red;
+				choose2 = startData.clueNum;
+			}
 
-            if (choose1 == choosecluenum)
-            {
-                choose1 = -1;
-                choosebutton.color = white;
-            }
-            else if (choose2 == choosecluenum)
-            {
-                choose2 = -1;
-                choosebutton.color = white;
-            }
-            else if (choose1 == -1)
-            {
-                choosebutton.color = red;
-                choose1 = choosecluenum;
-            }
-            else if (choose2 == -1)
-            {
-                choosebutton.color = red;
-                choose2 = choosecluenum;
-            }
             else
                 print("选择错误");
         }
     }
 
+	private void clearColor(){
+		choose1 = choose2 = -1;
+		string temp2 = "Clue" + choose1.ToString();
+		UISprite choosebutton = GameObject.Find(temp2).GetComponent<UISprite>();
+		choosebutton.color = white;
+		temp2 = "Clue" + choose2.ToString();
+		choosebutton = GameObject.Find(temp2).GetComponent<UISprite>();
+		choosebutton.color = white;
+	}
+
     private void FinishButtonDown()
     {
+		if (choose1 == -1 || choose2 == -1) {
+			return;
+		}
         if (choose1 > choose2)
         {
             int tempnum = choose1;
@@ -179,40 +175,19 @@ public class ClueJudge : MonoBehaviour {
         {
 			if (choose1 == cluecombination[i].clue1 && choose2 == cluecombination[i].clue2 && clueData.isActive[cluecombination[i].result] == false)
             {
+				clearColor ();
+
 				clueData.isActive[cluecombination[i].result] = true;
                 string temp = "Clue" + cluecombination[i].result.ToString();
                 print(temp);
                 GameObject.Find(temp).transform.Translate(bPosition);
-                Restore();
+
                 return;
             }
         }
-        Restore();
+		clearColor ();
         print("线索组合错误");
-
         return;
     }
-
-    private void Restore()
-    {
-        Color white = new Color(255, 255, 255);
-
-        string temp = "Clue" + choose1.ToString();
-        //Button choosebutton = GameObject.Find(temp).GetComponent<Button>();
-        //choosebutton.GetComponent<Image>().color = white;
-        temp = "Clue" + choose2.ToString();
-        //choosebutton = GameObject.Find(temp).GetComponent<Button>();
-        //choosebutton.GetComponent<Image>().color = white;
-
-        choose1 = -1;
-        choose2 = -1;
-        choosecluenum = -1;
-
-        return;
-    }
-
-    private void ReturnButtonDown()
-    {
-        //***返回并更新数据库（主要是传入isActive数组)***
-    }
+		
 }

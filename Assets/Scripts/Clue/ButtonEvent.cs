@@ -9,37 +9,37 @@ public class ButtonEvent : MonoBehaviour {
 	private Vector2[] vector = new Vector2[NUM];
 	GameObject[] obj = new GameObject[NUM];
 	private StartData startData = StartData.getInstance ();
+	private ClueJudge clueJudge = new ClueJudge ();
 	void Awake(){
 		for (int i = 0; i < NUM; i++) {
 			speed [i] = 0.0f;
-			obj[i] = GameObject.Find ("UI Root (3D)/Canvas/Clue" + i);
+			obj [i] = GameObject.Find ("UI Root (3D)/Canvas/Clue" + i);
 			UIEventListener.Get (obj[i]).onClick += ButtonClick;
 			UIEventListener.Get (obj[i]).onDrag += ButtonDrag;
-			obj[i].AddComponent<Rigidbody> ();
-			obj[i].GetComponent<Rigidbody> ().useGravity = false;
+			obj [i].AddComponent<Rigidbody> ();
+			obj [i].GetComponent<Rigidbody> ().useGravity = false;
 		}
 	}
 
 	void FixedUpdate(){
-		if (startData.isStart)
-			return;
+		
 		for (int i = 0; i < NUM; i++) {
 			if (speed [i] > 0) {
 				speed [i] -= acc;
 				Vector3 LocalPos = obj[i].transform.position;
 				if (LocalPos.y < -400) {
 					vector [i].y = -vector [i].y;
-					LocalPos.y = -400;
+					obj [i].GetComponent<Rigidbody> ().MovePosition (new Vector3(LocalPos.x, -398, LocalPos.z));
 				}
 				else if (LocalPos.y > 600) {
 					vector [i].y = -vector [i].y;
-					LocalPos.y = 600;
+					obj [i].GetComponent<Rigidbody> ().MovePosition (new Vector3(LocalPos.x, 598, LocalPos.z));
 				}
-				if (LocalPos.x < 1) {
+				if (LocalPos.x < 1) { //现在还没有人知道小于什么
 				} 
 				else if (LocalPos.x > 4650) {
 					vector [i].x = -vector [i].x;
-					LocalPos.x = 4650;
+					obj [i].GetComponent<Rigidbody> ().MovePosition (new Vector3(4648, LocalPos.y, LocalPos.z));
 				}
 					
 				Vector3 LocalForward = transform.TransformPoint (Vector3.forward * speed [i]);
@@ -58,12 +58,13 @@ public class ButtonEvent : MonoBehaviour {
 		speed [cluenum] = 10.0f;
 		vector [cluenum] = vec;
 	}
+
 	void ButtonClick(GameObject obj){
 		if (!startData.isStart)
 			return;
 		Debug.Log (obj.name);
 		string snum = obj.name.Substring(4, obj.name.Length - 4);
-		int cluenum = int.Parse(snum);
-		//GameObject.Find("Canvas").SendMessage("GetClueNum", cluenum);
+		startData.clueNum = int.Parse(snum);
+		GameObject.Find("Canvas").GetComponent<ClueJudge>().ButtonJudge();
 	}
 }

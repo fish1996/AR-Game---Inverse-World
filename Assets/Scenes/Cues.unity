@@ -254,31 +254,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0008_\u7F1D\u7EAB\u9AD8\u624B"
   mFillCenter: 1
---- !u!61 &42126378
-BoxCollider2D:
+--- !u!65 &42126378
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42126375}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.05871582, y: 9.264252}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 608.33374, y: 446.8963}
-  m_EdgeRadius: 0
+  m_Size: {x: 608.3337, y: 446.8963, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &48602492
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,31 +350,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0021_\u6742\u5FD7"
   mFillCenter: 1
---- !u!61 &48602495
-BoxCollider2D:
+--- !u!65 &48602495
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 48602492}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 7.9710693, y: 4.8423996}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 329.16626, y: 287.36487}
-  m_EdgeRadius: 0
+  m_Size: {x: 329.1663, y: 287.3649, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &75921009
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,31 +638,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: _0000_portrait3
   mFillCenter: 1
---- !u!61 &238663081
-BoxCollider2D:
+--- !u!65 &238663081
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 238663078}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.9057617, y: 3.2518005}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 686.94385, y: 482.95343}
-  m_EdgeRadius: 0
+  m_Size: {x: 482.9534, y: 686.9438, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &259157772
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,31 +845,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0035_---\u753B\u5BA4"
   mFillCenter: 1
---- !u!61 &309558064
-BoxCollider2D:
+--- !u!65 &309558064
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309558061}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 5.7091675, y: 4.0630493}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 335.5067, y: 297.90613}
-  m_EdgeRadius: 0
+  m_Size: {x: 335.5067, y: 297.9061, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &385566862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,9 +989,7 @@ GameObject:
   - component: {fileID: 395204600}
   - component: {fileID: 395204599}
   - component: {fileID: 395204603}
-  - component: {fileID: 395204604}
   - component: {fileID: 395204606}
-  - component: {fileID: 395204605}
   - component: {fileID: 395204607}
   - component: {fileID: 395204608}
   m_Layer: 5
@@ -1227,40 +1173,13 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
---- !u!54 &395204604
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 395204598}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &395204605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 395204598}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f49cc0740fddb443b4676b40677be89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mycamera: {fileID: 385566866}
 --- !u!114 &395204606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 395204598}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e59f0e34ed5c545922ea82584dfd51, type: 3}
   m_Name: 
@@ -1588,31 +1507,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0013_\u6842\u82B1\u7CD5"
   mFillCenter: 1
---- !u!61 &602837710
-BoxCollider2D:
+--- !u!65 &602837710
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602837707}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 5.888916, y: 6.489746}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 346.42822, y: 282.39685}
-  m_EdgeRadius: 0
+  m_Size: {x: 346.4282, y: 282.3969, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &638954633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,31 +1699,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0029_\u68A6\u60F3"
   mFillCenter: 1
---- !u!61 &639684593
-BoxCollider2D:
+--- !u!65 &639684593
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 639684590}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.2001953, y: 2.6023712}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 605.04517, y: 444.89316}
-  m_EdgeRadius: 0
+  m_Size: {x: 605.0452, y: 444.8932, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &649055232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,31 +1975,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0030_-\u5927\u8D5B"
   mFillCenter: 1
---- !u!61 &717655088
-BoxCollider2D:
+--- !u!65 &717655088
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717655085}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.8634949, y: 4.2230225}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 333.86176, y: 294.49927}
-  m_EdgeRadius: 0
+  m_Size: {x: 333.8618, y: 294.4993, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &828783904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,31 +2241,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0011_\u620F\u5267\u7231\u597D"
   mFillCenter: 1
---- !u!61 &874758032
-BoxCollider2D:
+--- !u!65 &874758032
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 874758029}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 4.1033936, y: 6.6384125}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 604.4602, y: 442.41037}
-  m_EdgeRadius: 0
+  m_Size: {x: 604.4602, y: 442.4104, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &878017523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,31 +2505,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0025_---\u7ED8\u753B"
   mFillCenter: 1
---- !u!61 &981891683
-BoxCollider2D:
+--- !u!65 &981891683
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 981891680}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.2889404, y: -0.9607544}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 341.53052, y: 300.67114}
-  m_EdgeRadius: 0
+  m_Size: {x: 341.5305, y: 300.6711, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &989274620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,31 +2697,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0027_---\u5FC3\u52A8"
   mFillCenter: 1
---- !u!61 &1081107206
-BoxCollider2D:
+--- !u!65 &1081107206
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081107203}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 4.260025, y: -0.020751953}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 522.3408, y: 440.73633}
-  m_EdgeRadius: 0
+  m_Size: {x: 522.3408, y: 440.7363, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1089800947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,31 +2793,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0018_---\u827A\u8003"
   mFillCenter: 1
---- !u!61 &1089800950
-BoxCollider2D:
+--- !u!65 &1089800950
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089800947}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.9837036, y: 10.30481}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 529.5641, y: 443.6676}
-  m_EdgeRadius: 0
+  m_Size: {x: 529.5641, y: 443.6676, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1104970925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,31 +2889,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0015_\u6536\u96C6"
   mFillCenter: 1
---- !u!61 &1104970928
-BoxCollider2D:
+--- !u!65 &1104970928
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1104970925}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 4.288086, y: 6.197113}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.57275, y: 276.0783}
-  m_EdgeRadius: 0
+  m_Size: {x: 345.5728, y: 276.0783, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1136585099
 GameObject:
   m_ObjectHideFlags: 0
@@ -3266,31 +3081,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0016_---\u620F\u5267"
   mFillCenter: 1
---- !u!61 &1141499217
-BoxCollider2D:
+--- !u!65 &1141499217
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141499214}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.8010254, y: 7.9859924}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 340.1333, y: 290.12982}
-  m_EdgeRadius: 0
+  m_Size: {x: 340.1333, y: 290.1298, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1149079207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,31 +3443,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0010_\u5FC3\u613F"
   mFillCenter: 1
---- !u!61 &1174836436
-BoxCollider2D:
+--- !u!65 &1174836436
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1174836433}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.083618164, y: 7.522064}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 610.7571, y: 443.32086}
-  m_EdgeRadius: 0
+  m_Size: {x: 610.7571, y: 443.3209, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1181812164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,31 +3539,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0007_---\u6094\u6068"
   mFillCenter: 1
---- !u!61 &1181812167
-BoxCollider2D:
+--- !u!65 &1181812167
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1181812164}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.8562012, y: 8.579666}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 539.8423, y: 444.1401}
-  m_EdgeRadius: 0
+  m_Size: {x: 539.8423, y: 444.1401, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1208005683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,31 +3635,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0034_---\u70B9\u5FC3-"
   mFillCenter: 1
---- !u!61 &1208005686
-BoxCollider2D:
+--- !u!65 &1208005686
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1208005683}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 5.2628555, y: -1.8634338}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 347.4696, y: 294.3073}
-  m_EdgeRadius: 0
+  m_Size: {x: 347.9727, y: 299.6011, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1210260295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,31 +3731,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0019_\u89C4\u5212"
   mFillCenter: 1
---- !u!61 &1210260298
-BoxCollider2D:
+--- !u!65 &1210260298
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1210260295}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 5.9153748, y: 7.823456}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 593.5068, y: 448.07697}
-  m_EdgeRadius: 0
+  m_Size: {x: 593.5068, y: 448.077, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1225946977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,31 +3827,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0037_---\u753B\u5177-"
   mFillCenter: 1
---- !u!61 &1225946980
-BoxCollider2D:
+--- !u!65 &1225946980
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1225946977}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.0878296, y: 1.4156799}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 329.3368, y: 303.47223}
-  m_EdgeRadius: 0
+  m_Size: {x: 329.3368, y: 303.4722, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1232261967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4186,31 +3923,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0020_\u8F6C\u5B66"
   mFillCenter: 1
---- !u!61 &1232261970
-BoxCollider2D:
+--- !u!65 &1232261970
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232261967}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 9.724731, y: 5.0128174}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 594.70044, y: 446.51355}
-  m_EdgeRadius: 0
+  m_Size: {x: 594.7004, y: 446.5135, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1257515597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,31 +4019,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0014_\u96C6\u5E02"
   mFillCenter: 1
---- !u!61 &1257515600
-BoxCollider2D:
+--- !u!65 &1257515600
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1257515597}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.8780518, y: 6.405121}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 334.90063, y: 270.16437}
-  m_EdgeRadius: 0
+  m_Size: {x: 334.9006, y: 270.1644, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1295573627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4404,31 +4115,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0036_\u6210\u7EE9"
   mFillCenter: 1
---- !u!61 &1295573630
-BoxCollider2D:
+--- !u!65 &1295573630
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1295573627}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.5668488, y: 7.5383606}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 347.97275, y: 299.60114}
-  m_EdgeRadius: 0
+  m_Size: {x: 347.9727, y: 299.6011, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1318315006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,7 +4162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 190}
+  m_AnchoredPosition: {x: 200, y: 140}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318315008
@@ -4747,31 +4445,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0012_\u5168\u5BB6\u798F"
   mFillCenter: 1
---- !u!61 &1384516316
-BoxCollider2D:
+--- !u!65 &1384516316
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1384516313}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.7504883, y: 3.1123352}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 348.33398, y: 294.46442}
-  m_EdgeRadius: 0
+  m_Size: {x: 348.334, y: 294.4644, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1392622546
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,31 +4541,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0032_\u7F1D\u7EAB"
   mFillCenter: 1
---- !u!61 &1392622549
-BoxCollider2D:
+--- !u!65 &1392622549
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1392622546}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 6.7884827, y: -0.013671875}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.73358, y: 301.82214}
-  m_EdgeRadius: 0
+  m_Size: {x: 345.7336, y: 301.8221, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1396623129
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,31 +4733,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0009_\u76F8\u4F9D\u4E3A\u547D"
   mFillCenter: 1
---- !u!61 &1404613678
-BoxCollider2D:
+--- !u!65 &1404613678
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1404613675}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 6.5045166, y: 6.2631836}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 599.1321, y: 456.8501}
-  m_EdgeRadius: 0
+  m_Size: {x: 599.1321, y: 456.8501, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1420623492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5266,31 +4925,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0023_\u5976\u5976"
   mFillCenter: 1
---- !u!61 &1574094117
-BoxCollider2D:
+--- !u!65 &1574094117
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1574094114}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.8054199, y: 6.4752197}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 349.51807, y: 288.17822}
-  m_EdgeRadius: 0
+  m_Size: {x: 349.5181, y: 288.1782, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1595289312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5375,31 +5021,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0022_\u4E0D\u5B89"
   mFillCenter: 1
---- !u!61 &1595289315
-BoxCollider2D:
+--- !u!65 &1595289315
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1595289312}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 10.494751, y: 4.3852234}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 334.4397, y: 303.0617}
-  m_EdgeRadius: 0
+  m_Size: {x: 334.4397, y: 303.0617, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1613195433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,31 +5455,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114350049154330260, guid: 5445c78aa00d1024ab8fc52a34a5fc68, type: 2}
   mSpriteName: "_0043_---\u65C5\u884C"
   mFillCenter: 1
---- !u!61 &1732520038
-BoxCollider2D:
+--- !u!65 &1732520038
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1732520035}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 5.536133, y: 1.0706635}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 347.52832, y: 302.16965}
-  m_EdgeRadius: 0
+  m_Size: {x: 347.5283, y: 302.1696, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1735956684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,31 +5647,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0031_\u53DB\u9006"
   mFillCenter: 1
---- !u!61 &1739564256
-BoxCollider2D:
+--- !u!65 &1739564256
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1739564253}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 18.889557, y: 0.99790955}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 584.7819, y: 445.90652}
-  m_EdgeRadius: 0
+  m_Size: {x: 584.7819, y: 445.9065, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1759819797
 GameObject:
   m_ObjectHideFlags: 0
@@ -6136,31 +5743,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0028_\u5173\u5FC3"
   mFillCenter: 1
---- !u!61 &1759819800
-BoxCollider2D:
+--- !u!65 &1759819800
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759819797}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 6.637024, y: 2.6369019}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 598.7328, y: 453.349}
-  m_EdgeRadius: 0
+  m_Size: {x: 598.7328, y: 453.349, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1777175053
 GameObject:
   m_ObjectHideFlags: 0
@@ -6245,31 +5839,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114226484487358494, guid: 79da24e780f2eaa42824474e29784f9c, type: 2}
   mSpriteName: "_0033_\u7236\u6BCD"
   mFillCenter: 1
---- !u!61 &1777175056
-BoxCollider2D:
+--- !u!65 &1777175056
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777175053}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 4.7162323, y: 2.449173}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 349.6293, y: 296.18326}
-  m_EdgeRadius: 0
+  m_Size: {x: 349.6293, y: 296.1833, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1781509441
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,31 +5935,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0024_\u73ED\u4E3B\u4EFB"
   mFillCenter: 1
---- !u!61 &1781509444
-BoxCollider2D:
+--- !u!65 &1781509444
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1781509441}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.4215088, y: 3.5454712}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 342.91626, y: 293.12085}
-  m_EdgeRadius: 0
+  m_Size: {x: 342.9163, y: 293.1208, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1787882099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6528,31 +6096,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114456158142494644, guid: 8357a0f634196af4d9a155da482845cd, type: 2}
   mSpriteName: "_0017_---\u519C\u6751"
   mFillCenter: 1
---- !u!61 &1845487000
-BoxCollider2D:
+--- !u!65 &1845487000
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1845486997}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 8.517822, y: 5.944458}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 341.35693, y: 293.20972}
-  m_EdgeRadius: 0
+  m_Size: {x: 341.3569, y: 293.2097, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1899385799
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,31 +6192,18 @@ MonoBehaviour:
   mAtlas: {fileID: 114770127486754506, guid: e2f387c2b8694fa418da14668bdfa82d, type: 2}
   mSpriteName: "_0026_---\u4F4F\u6821"
   mFillCenter: 1
---- !u!61 &1899385802
-BoxCollider2D:
+--- !u!65 &1899385802
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1899385799}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.5256348, y: 3.2801666}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 341.52905, y: 293.97665}
-  m_EdgeRadius: 0
+  m_Size: {x: 341.5291, y: 293.9767, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1910428484
 GameObject:
   m_ObjectHideFlags: 0
