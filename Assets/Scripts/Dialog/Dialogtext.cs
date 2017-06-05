@@ -134,7 +134,7 @@ public class Dialogtext : MonoBehaviour {
 						temp.dtxt.Add (tempdtxt);
 					} 
 					else {
-						string fclue = line.Substring (0, line.Length - 1);
+						string fclue = line.Substring (0, line.IndexOf ("："));
 						temp.clue = fclue;
 					}
 				}
@@ -184,7 +184,8 @@ public class Dialogtext : MonoBehaviour {
 			string [] ClueArray;
 			ClueArray=SplitWithString(text,"\n"); //根据线索分割字符串，此处选择空行区分每一线索
 
-			temp.cluewords = ClueArray [0];
+			string line = ClueArray [0];
+			temp.cluewords = line.Substring (0, line.IndexOf ("："));
 
 			int length = text.Length - ClueArray [0].Length - 1;
 			temp.clueparagraph = text.Substring (ClueArray [0].Length + 1,length);

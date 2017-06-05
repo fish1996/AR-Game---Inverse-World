@@ -40,7 +40,6 @@ public class Beginfirstchat : MonoBehaviour {
 		Dialogstartbox.SetActive (false);
 		isnameing = false;
 
-		Beginfirst (); //测试用
 	}
 	
 	// Update is called once per frame
