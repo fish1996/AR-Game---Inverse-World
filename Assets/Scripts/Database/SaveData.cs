@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 public class SaveData{
-	private const int TABLENUM = 6;
+	private const int TABLENUM = 7;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
@@ -15,6 +15,7 @@ public class SaveData{
     private ManaData manaData = ManaData.getInstance ();
     private TimeData timeData = TimeData.getInstance ();
 	private PlaceData placeData = PlaceData.getInstance ();
+    private NameData nameData = NameData.getInstance();
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -129,6 +130,17 @@ public class SaveData{
 		} else {
 			placeData.isOnTheMarker = true;
 		}
+
+        //加载name data
+        query = "SELECT * FROM "
+            + tableName[6];
+        dataReader = ExecuteQuery(query);
+
+        while (dataReader.Read())
+        {
+            nameData.playerName = dataReader.GetString(dataReader.GetOrdinal("name"));
+            Debug.Log("name=" + nameData.playerName);
+        }
     }
 
 	private void CreateTable(int id) {
@@ -203,6 +215,13 @@ public class SaveData{
 		    		ExecuteQuery(query);
 		    		break;
 		    	}
+            case 6:
+                {
+                    //建表 : place
+                    query = "CREATE TABLE " + tableName[6] + "(id INT PRIMARY KEY NOT NULL,name TEXT NOT NULL);";
+                    ExecuteQuery(query);
+                    break;
+                }
         }
 	}
 		
@@ -256,15 +275,36 @@ public class SaveData{
 		updateString = "UPDATE " + tableName[5] + " SET isonthemarker = " 
 			+ data + " WHERE id = 1;";
 		ExecuteQuery(updateString);
+
     }
 
-	public SaveData () {
+    public void SavePlayerName()
+    {
+        String query = "SELECT count(*) FROM " + tableName[6];
+        ExecuteQuery(query);
+        int count = 0;
+        while (dataReader.Read())
+        {
+            count = dataReader.GetInt32(0);
+        }
+        if(count > 0)
+        {
+            return;
+        }
+        //向place存入初始数据
+        query = "INSERT INTO " + tableName[6] + " values(1,'" + nameData.playerName + "');";
+        ExecuteQuery(query);
+    }
+
+
+    public SaveData () {
 		tableName [0] = "story";
 		tableName [1] = "feed";
 		tableName [2] = "clue";
         tableName [3] = "mana";
         tableName [4] = "time";
 		tableName [5] = "place";
+        tableName [6] = "name";
 	}
 
 	public void Load(){
