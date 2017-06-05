@@ -8,6 +8,8 @@ using Vuforia;
  */
 public class TouchTranslate : MonoBehaviour
 {
+	public ChooseData data = ChooseData.getInstance();
+
     private GameObject hitObject;
 
     private Vector3 _targetPos = new Vector3(100, -300, 600);
@@ -26,7 +28,10 @@ public class TouchTranslate : MonoBehaviour
     {
         if (TranslateStart)
         {
-			GameObject.Find ("controlchat").GetComponent<Beginfirstchat> ().Beginfirst ();
+			bool isgetmember = GameObject.Find ("controlchat").GetComponent<Beginchat> ().isgetmember;
+			if (!isgetmember && !data.isChooseName) {
+				GameObject.Find ("controlchat").GetComponent<Beginfirstchat> ().Beginfirst ();
+			}
         }
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0)) {

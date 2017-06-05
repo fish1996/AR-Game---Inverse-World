@@ -83,7 +83,7 @@ public class Dialogtext : MonoBehaviour {
 		{
 			Ptxt temp;
 			string [] ClueArray;
-			ClueArray=SplitWithString(text,"\n\n"); //根据线索分割字符串，此处选择空行区分每一线索
+			ClueArray=SplitWithString(text,"\r\n\r\n"); //根据线索分割字符串，此处选择空行区分每一线索
 
 			temp.ctxt = new List<Ctxt>();
 
@@ -169,7 +169,7 @@ public class Dialogtext : MonoBehaviour {
 
 			cluetxt = new List<Clue>();
 			string [] PassArray;
-			PassArray=SplitWithString(binAsset.text,"\n\n"); //根据空行分割字符串
+			PassArray=SplitWithString(binAsset.text,"\r\n\r\n"); //根据空行分割字符串
 
 			for (int i = 0; i < PassArray.Length; i++){
 				Clue tempcluetxt=Classify(PassArray[i],i);

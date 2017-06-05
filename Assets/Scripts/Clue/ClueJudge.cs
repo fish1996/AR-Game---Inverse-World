@@ -32,6 +32,7 @@ public class ClueJudge : MonoBehaviour {
 	private const int MAXCOUNT = 100;
 
     private List<Combination> cluecombination = new List<Combination>();
+ 
     private Vector3 tPosition = new Vector3(0, 5000, 0);
     private Vector3 bPosition = new Vector3(0, -5000, 0);
 	private Color white;

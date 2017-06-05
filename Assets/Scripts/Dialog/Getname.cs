@@ -7,7 +7,6 @@ public class Getname : MonoBehaviour {
 	private string userName;//用户名
 	private Text input;
 	public Dialogstart Sd;
-	public SaveData data = new SaveData();
 	public NameData namedata = NameData.getInstance();
 
 	public void Inputname()
@@ -16,7 +15,7 @@ public class Getname : MonoBehaviour {
 		userName = input.text;
 	}
 
-	void Start () {
+	void Awake () {
 		Sd = Dialogstart.GetInstance();
 		Button btn = GameObject.Find ("okButton").GetComponent<Button> ();
 		btn.onClick.AddListener (OnClick);
@@ -25,7 +24,6 @@ public class Getname : MonoBehaviour {
 	private void OnClick(){
 		Inputname ();
 		namedata.playerName = userName;
-		//data.SavePlayerName ();
 
 		GameObject.Find ("controlchat").GetComponent<Beginfirstchat> ().Playerstart.SetActive (false);
 		GameObject.Find ("controlchat").GetComponent<Beginfirstchat> ().Sdnum ++;

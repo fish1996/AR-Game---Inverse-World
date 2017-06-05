@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 public class SaveData{
-	private const int TABLENUM = 7;
+	private const int TABLENUM = 8;
 	private SqliteConnection dbConnection;//数据库连接定义
 	private SqliteCommand dbCommand;//SQL命令
 	private SqliteDataReader dataReader;//读取
@@ -16,6 +16,7 @@ public class SaveData{
     private TimeData timeData = TimeData.getInstance ();
 	private PlaceData placeData = PlaceData.getInstance ();
     private NameData nameData = NameData.getInstance();
+	private ChooseData chooseData = ChooseData.getInstance();
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -141,6 +142,23 @@ public class SaveData{
             nameData.playerName = dataReader.GetString(dataReader.GetOrdinal("name"));
             Debug.Log("name=" + nameData.playerName);
         }
+
+		query = "SELECT * FROM "
+		    + tableName [7];
+		dataReader = ExecuteQuery(query);
+
+		data = 0;
+		while (dataReader.Read())
+		{
+			data = dataReader.GetInt32(dataReader.GetOrdinal("ischoose"));
+		}
+		Debug.Log ("isChoose=" + data);
+		if (data == 0) {
+			chooseData.isChooseName = false;
+		} 
+		else {
+			chooseData.isChooseName = true;
+		}
     }
 
 	private void CreateTable(int id) {
@@ -220,8 +238,21 @@ public class SaveData{
                     //建表 : place
                     query = "CREATE TABLE " + tableName[6] + "(id INT PRIMARY KEY NOT NULL,name TEXT NOT NULL);";
                     ExecuteQuery(query);
+				   //向place存入初始数据
+				    query = "INSERT INTO " + tableName[6] + " values(1,'miao');";
+				    ExecuteQuery(query);
                     break;
                 }
+	    	case 7:
+		    	{
+			    	//建表 : place
+			    	query = "CREATE TABLE " + tableName[7] + "(id INT PRIMARY KEY NOT NULL,ischoose INT NOT NULL);";
+			    	ExecuteQuery(query);
+
+			    	query = "INSERT INTO " + tableName[7] + " values(1,0);";
+			     	ExecuteQuery(query);
+			    	break;
+		    	}
         }
 	}
 		
@@ -265,6 +296,7 @@ public class SaveData{
             + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE id = 1;";
         ExecuteQuery(updateString);
 
+
 		if (placeData.isOnTheMarker) {
 			data = 1;
 		} 
@@ -276,26 +308,23 @@ public class SaveData{
 			+ data + " WHERE id = 1;";
 		ExecuteQuery(updateString);
 
-    }
+		// 保存名字
+		updateString = "UPDATE " + tableName[6] + " SET name = " 
+			+ nameData.playerName + " WHERE id = 1;";
+		ExecuteQuery(updateString);
 
-    public void SavePlayerName()
-    {
-        String query = "SELECT count(*) FROM " + tableName[6];
-        ExecuteQuery(query);
-        int count = 0;
-        while (dataReader.Read())
-        {
-            count = dataReader.GetInt32(0);
-        }
-        if(count > 0)
-        {
-            return;
-        }
-        //向place存入初始数据
-        query = "INSERT INTO " + tableName[6] + " values(1,'" + nameData.playerName + "');";
-        ExecuteQuery(query);
+		if (chooseData.isChooseName) {
+			data = 1;
+		} 
+		else {
+			data = 0;
+		}
+		// 保存状态1
+		updateString = "UPDATE " + tableName[7] + " SET ischoose = " 
+			+ data + " WHERE id = 1;";
+		ExecuteQuery(updateString);
     }
-
+		
 
     public SaveData () {
 		tableName [0] = "story";
@@ -305,6 +334,7 @@ public class SaveData{
         tableName [4] = "time";
 		tableName [5] = "place";
         tableName [6] = "name";
+		tableName [7] = "choose";
 	}
 
 	public void Load(){

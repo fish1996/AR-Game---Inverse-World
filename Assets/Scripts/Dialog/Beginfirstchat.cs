@@ -17,6 +17,7 @@ public class Beginfirstchat : MonoBehaviour {
 	public Sprite player;//定义玩家的按钮图标
 	public bool isnameing; //表明是否进入取名阶段（true表示在该阶段）
 	public NameData namedata = NameData.getInstance();
+	public ChooseData data = ChooseData.getInstance();
 
 	// Use this for initialization
 	void Start () {
@@ -34,10 +35,12 @@ public class Beginfirstchat : MonoBehaviour {
 			
 		Sd = Dialogstart.GetInstance ();
 		Memberbutton = Dialogstartbox.GetComponent<Button> ();
+
 		Playerstart.SetActive (false);
 		Dialogstartbox.SetActive (false);
 		isnameing = false;
 
+		Beginfirst (); //测试用
 	}
 	
 	// Update is called once per frame
@@ -89,6 +92,7 @@ public class Beginfirstchat : MonoBehaviour {
 				Playerstart.SetActive (false);
 				Dialogstartbox.SetActive (false);
 				GameObject.Find ("controlchat").GetComponent<Beginchat> ().isgetmember = true;
+				data.isChooseName = true;
 			} 
 			else if (Sdnum == speclianum - 1) {
 				isnameing = true;

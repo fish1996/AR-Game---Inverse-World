@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44853085, g: 0.49858046, b: 0.5755743, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486121, g: 0.49866343, b: 0.57566845, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -587,13 +587,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccaf6d002030545a486bc195d36a1a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaText: {fileID: 238710291}
+  manaText: {fileID: 0}
   consume: 0
   ifBeginChat: 0
-  confirmText: {fileID: 802297283}
-  yesButton: {fileID: 761898600}
-  noButton: {fileID: 1402050511}
-  sureButton: {fileID: 983182668}
+  confirmText: {fileID: 0}
+  yesButton: {fileID: 0}
+  noButton: {fileID: 0}
+  sureButton: {fileID: 0}
 --- !u!1 &298849901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cf9800345b3cf4b9a1b965c9d73ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedBtn: {fileID: 1928359140}
+  feedBtn: {fileID: 0}
   backBtn: {fileID: 0}
 --- !u!1 &753771234
 GameObject:
@@ -1740,11 +1740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac91769bd60e844af945f747ffe8f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogbox: {fileID: 55074780}
-  Clue: {fileID: 1759875469}
+  Dialogbox: {fileID: 0}
+  Clue: {fileID: 0}
   iscanclue: 0
   _factclue: 
-  FactClue: {fileID: 694171115}
+  FactClue: {fileID: 0}
 --- !u!114 &792093569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,15 +1756,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8464a8a4c1d45c6b98bf6f8ffc87d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Content: {fileID: 1060794271}
+  Content: {fileID: 0}
   d: {fileID: 0}
   mname: 
   other: {fileID: 0}
   t: 0
-  member1: {fileID: 21300000, guid: 22d649af07fa4480e910947757dc6dab, type: 3}
-  member2: {fileID: 21300000, guid: c819e20de214f47c3b750d9261921092, type: 3}
-  player: {fileID: 21300000, guid: 23c85a9b6ec2246d08cd46174aaa1507, type: 3}
-  Member: {fileID: 55074780}
+  member1: {fileID: 0}
+  member2: {fileID: 0}
+  player: {fileID: 0}
+  Member: {fileID: 0}
   Memberbutton: {fileID: 0}
   factclue: 
 --- !u!114 &792093570
@@ -4115,7 +4115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71429e66cf98ac46b1eb31b9e542a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCharacter: {fileID: 2103290725}
+  MainCharacter: {fileID: 0}
 --- !u!1 &1660598656 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
