@@ -309,8 +309,8 @@ public class SaveData{
 		ExecuteQuery(updateString);
 
 		// 保存名字
-		updateString = "UPDATE " + tableName[6] + " SET name = " 
-			+ nameData.playerName + " WHERE id = 1;";
+		updateString = "UPDATE " + tableName[6] + " SET name = '" 
+			+ nameData.playerName + "' WHERE id = 1;";
 		ExecuteQuery(updateString);
 
 		if (chooseData.isChooseName) {
