@@ -26,7 +26,7 @@ public class TouchTranslate : MonoBehaviour
     {
         if (TranslateStart)
         {
-			GameObject.Find ("controlchat").GetComponent<Beginchat> ().isgetmember = true;
+			GameObject.Find ("controlchat").GetComponent<Beginfirstchat> ().Beginfirst ();
         }
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0)) {

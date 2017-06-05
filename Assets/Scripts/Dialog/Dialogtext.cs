@@ -12,8 +12,8 @@ public class Dialogtext : MonoBehaviour {
 
 	void Awake()
 	{
-		string n = "衡琳";
-		PlayerPrefs.SetString ("membername",n);
+		/*string n = "衡琳";
+		PlayerPrefs.SetString ("membername",n);*/
 		string name = PlayerPrefs.GetString("membername");
 		getText(name);
 	}
@@ -149,6 +149,8 @@ public class Dialogtext : MonoBehaviour {
 			return dialog;
 		}
 	}
+
+
 
 	//线索类
 	public class ClueIntroduction{
