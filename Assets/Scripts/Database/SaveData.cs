@@ -185,7 +185,7 @@ public class SaveData{
                     ExecuteQuery(query);
 
                     //向feed存入初始数据
-                    query = "INSERT INTO " + tableName[1] + " values(1,12,0);";
+                    query = "INSERT INTO " + tableName[1] + " values(1,48,0);";
                     ExecuteQuery(query);
                     break;
                 }
