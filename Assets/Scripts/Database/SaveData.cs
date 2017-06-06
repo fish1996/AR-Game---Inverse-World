@@ -17,6 +17,8 @@ public class SaveData{
 	private PlaceData placeData = PlaceData.getInstance ();
     private NameData nameData = NameData.getInstance();
 	private ChooseData chooseData = ChooseData.getInstance();
+	private BeginData beginData = BeginData.getInstance();
+	private UpdateMana updateMana;
 	private string[] tableName = new string[TABLENUM];
 	private bool isTableExist(int id) {		
 		string query = "SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '"
@@ -338,7 +340,12 @@ public class SaveData{
 	}
 
 	public void Load(){
-//		Debug.Log ("save");
+		if (beginData.isBegin) {
+			return;
+		} 
+		else {
+			beginData.isBegin = true;
+		}
 		try{
 			dbConnection = new SqliteConnection("data source = playerdata.db");
 			dbConnection.Open();
@@ -353,6 +360,9 @@ public class SaveData{
 			} 
 		}
 		LoadPlayerData ();
+		//更新Mana数值
+		updateMana = new UpdateMana();
+		updateMana.Start();
 	}
 
 	public void CloseConnection(){

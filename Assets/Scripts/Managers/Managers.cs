@@ -15,7 +15,7 @@ public class Managers : MonoBehaviour {
     public static MissionManager Scene { get; private set; }
 	private SaveData saveData;
     private List<IGameManager> _startSequence;
-    private UpdateMana updateMana;
+    
     void OnApplicationQuit(){
 		saveData.Save ();
 		saveData.CloseConnection ();
@@ -25,9 +25,6 @@ public class Managers : MonoBehaviour {
     {
 		saveData = new SaveData ();
 		saveData.Load ();
-        //更新Mana数值
-        updateMana = new UpdateMana();
-        updateMana.Start();
 
         DontDestroyOnLoad(gameObject);
 
