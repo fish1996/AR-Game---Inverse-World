@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR-Game---Inverse-World.Plugins", "AR-Game---Inverse-World.Plugins.csproj", "{CC204D16-C993-110D-5614-A0CB6F63D206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR-Game---Inverse-World", "AR-Game---Inverse-World.csproj", "{EDBAE70F-9A7A-6924-2988-54C78E465C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR-Game---Inverse-World.Editor.Plugins", "AR-Game---Inverse-World.Editor.Plugins.csproj", "{CC7B3ADF-CD73-A3A0-AB91-1D4F856382E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR-Game---Inverse-World.Editor", "AR-Game---Inverse-World.Editor.csproj", "{3DF7AFFE-15EC-0529-9CA7-CDE37A4E4949}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC204D16-C993-110D-5614-A0CB6F63D206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC204D16-C993-110D-5614-A0CB6F63D206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC204D16-C993-110D-5614-A0CB6F63D206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC204D16-C993-110D-5614-A0CB6F63D206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDBAE70F-9A7A-6924-2988-54C78E465C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBAE70F-9A7A-6924-2988-54C78E465C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBAE70F-9A7A-6924-2988-54C78E465C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBAE70F-9A7A-6924-2988-54C78E465C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7B3ADF-CD73-A3A0-AB91-1D4F856382E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7B3ADF-CD73-A3A0-AB91-1D4F856382E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7B3ADF-CD73-A3A0-AB91-1D4F856382E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7B3ADF-CD73-A3A0-AB91-1D4F856382E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF7AFFE-15EC-0529-9CA7-CDE37A4E4949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF7AFFE-15EC-0529-9CA7-CDE37A4E4949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF7AFFE-15EC-0529-9CA7-CDE37A4E4949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF7AFFE-15EC-0529-9CA7-CDE37A4E4949}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
