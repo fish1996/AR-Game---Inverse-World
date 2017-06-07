@@ -20,13 +20,23 @@ public class MainController : MonoBehaviour
     private GameObject ImageTarget;//目标图避免提前显示
     [SerializeField]
     private GameObject HitTargetPrefab;//目标图避免提前显示
+    [SerializeField]
+    private UILabel guit_energy;
+    
+
     private List<GameObject> mTargetList;
     private int indexOfThisTarget;
     private TrackableBehaviour mTrackableBehaviour;
     private int tryTime=0;
     private float scaleRank;
+    public static int add_energy;
+    private int temp_energy=10;
+    Object addEnergySuCai;
+    GameObject addEnergy;
+
     void Start()
     {
+        addEnergySuCai = Resources.Load<Object>("Prefabs/addEnergy_obj");
         mTargetList = new List<GameObject>();
         indexOfThisTarget = -1;
         progressBar.SetActive(false);
@@ -48,6 +58,7 @@ public class MainController : MonoBehaviour
 
     public void SetTargetPos(List<ClassOfTarget> list)
     {//初始化各个靶的位置
+        //add_energy = 0;
         progressBar.SetActive(true);//它们是出现在2DUI选择结束后的
         pressButton.SetActive(true);
         gunBarrel.SetActive(true);
@@ -76,9 +87,24 @@ public class MainController : MonoBehaviour
         if (indexOfThisTarget == mTargetList.Count-1)
         {
             //灵力值添加  Managers.Player.
+            addEnergy = Instantiate(addEnergySuCai) as GameObject;
+            addEnergy.transform.position = gunBarrel.transform.position;
+            print("position"+gunBarrel.transform.position);
+            addEnergy.transform.Rotate(new Vector3(0, 110, -45));
+            addEnergy.transform.Translate(new Vector3(0.4f, 0, 0));
+
+            Destroy(addEnergy,1);
+
+            //从数据库获取灵力值temp_energy=???;temp_energy=temp_energy+add_energy;
+            temp_energy = temp_energy + add_energy;
+            guit_energy.text="灵力值："+temp_energy;
             StopTheGame();
             Debug.Log("Win");
-            GameObject.Find("Camera").SendMessage("Result", true);
+            //GameObject.Find("Camera").SendMessage("Result", true);
+            GameObject.Find("Camera").SendMessage("Result", indexOfThisTarget + 1);
+            print("indexOfThisTarget:" + indexOfThisTarget);
+
+            GameObject.Find("UI Root").GetComponent<ButtonManager_Feed>().getBack();
         }
         else
         {
@@ -96,7 +122,8 @@ public class MainController : MonoBehaviour
         {
             StopTheGame();//fail
             Debug.Log("You don't have chance!");
-            GameObject.Find("Camera").SendMessage("Result", false);
+            //GameObject.Find("Camera").SendMessage("Result", false);
+            GameObject.Find("Camera").SendMessage("Result", indexOfThisTarget);
         }
         else
         {

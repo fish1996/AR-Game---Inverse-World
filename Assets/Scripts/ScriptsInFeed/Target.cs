@@ -12,7 +12,7 @@ public class Target : MonoBehaviour {
     public GameObject UIRoot;
     private Object bulletPrefab;
     public float ToDistanceSpeed = 800f;//将按键时间转化为射击距离的比例
-    public float bulletFlyingSpeed = 500f;//动画效果中的飞行速度
+    public float bulletFlyingSpeed = 400f;//动画效果中的飞行速度
     public float hitThreshold=300.0f;//用距离测试是否击中，如果用碰撞器无法检测超过情况
     private float percent;
     private float fireDistance;//子弹的预计飞行距离
@@ -27,9 +27,11 @@ public class Target : MonoBehaviour {
     private Vector3 direct;
     private GameObject _bullet;
     private float remainDistance;
+    
 
     void Awake()
     {
+    
         h = GetComponent<Highlighter>();
         if (h == null) { h = gameObject.AddComponent<Highlighter>();
         }
@@ -97,6 +99,7 @@ public class Target : MonoBehaviour {
         h.ConstantOffImmediate();
         if ((totalDistance- hitThreshold )< fireDistance && fireDistance < (totalDistance + hitThreshold))
         {
+            MainController.add_energy= MainController.add_energy + (int)((1 - System.Math.Abs(totalDistance - fireDistance) / hitThreshold) * 10);
             mainController = GameObject.FindWithTag("MainController_Feed");
             mainController.GetComponent<MainController>().HitTransform();
             mainController.GetComponent<MainController>().AlterToNextTarget();       
@@ -107,7 +110,15 @@ public class Target : MonoBehaviour {
         {
             if((totalDistance - hitThreshold) > fireDistance)//less
             {
-                UIRoot.GetComponent<ButtonManager_Feed>().showLessText();
+                //UIRoot.GetComponent<ButtonManager_Feed>().showLessText();
+                GameObject warning = new GameObject("warning");
+                        warning.transform.position = new Vector3(0, 0, 150);
+                        Sprite spr = Resources.Load<Sprite>("image/less");
+                        warning.AddComponent<SpriteRenderer>().sprite = spr;
+                        warning.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                        Destroy(warning, 1);
+                        print("less");
+                    
              /*   GameObject less = new GameObject("less");
                 less.transform.position = new Vector3(0, 0, 150);
                 Sprite spr = Resources.Load<Sprite>("image/less");
@@ -119,7 +130,15 @@ public class Target : MonoBehaviour {
             }
             if(fireDistance > (totalDistance + hitThreshold))
             {
-                UIRoot.GetComponent<ButtonManager_Feed>().showMoreText();
+                //UIRoot.GetComponent<ButtonManager_Feed>().showMoreText();
+                GameObject warning = new GameObject("warning");
+                        warning.transform.position = new Vector3(0, 0, 150);
+                        Sprite spr = Resources.Load<Sprite>("image/more");
+                        warning.AddComponent<SpriteRenderer>().sprite = spr;
+                        warning.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                        Destroy(warning, 1);
+                        print("less");
+                    
                 /*   GameObject more = new GameObject("more");
                    more.transform.position = new Vector3(0, 0, 150);
                    Sprite spr = Resources.Load<Sprite>("image/more");

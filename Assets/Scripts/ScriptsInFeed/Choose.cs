@@ -11,6 +11,7 @@ public struct Points
     public float x3d;
     public float y3d;
     public float z3d;
+    //public int has_choosed_num;
 
     public Points(int x2d,int y2d,float x3d,float y3d,float z3d) //带参数的构造函数
     {
@@ -37,17 +38,20 @@ public class Choose : MonoBehaviour {
     public List<Points> this_point = new List<Points>();
     public bool[] isChoose;
 	private FeedData feedData = FeedData.getInstance ();
-	public bool[] failChoose;//***需要存入数据库内所有点之前是否已经被选择的记录***
+    private bool[] successChoose;//***需要存入数据库内所有点之前是否已经被选择的记录***
+    private int[] ChoosePointNum;
     private bool hasFull = true;
     private bool showClue = true;
     private int choose_num = 0;
     private int max_choose = 4;
     private int deviation = 30;
+    private int onePoint = 0;
+    private int cnum = 0;
     private int width = Screen.width, height = Screen.height;
     public List<Vector3> choose_point = new List<Vector3>();
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         //print("start");
         NumShow(choose_num);
 
@@ -60,7 +64,7 @@ public class Choose : MonoBehaviour {
         print(folder);
 
         //读取文件  
-        TextAsset binAsset = Resources.Load(folder, typeof(TextAsset)) as TextAsset;//bug?
+        TextAsset binAsset = Resources.Load(folder, typeof(TextAsset)) as TextAsset;
 
         //读取每一行的内容  
         string[] lineArray = binAsset.text.Split("\r"[0]);
@@ -68,11 +72,15 @@ public class Choose : MonoBehaviour {
         //创建二维数组  
         Array = new string[lineArray.Length][];
         isChoose = new bool[lineArray.Length];
-        failChoose = new bool[lineArray.Length];//***hasChoose成功读取后删除***
+        successChoose = new bool[lineArray.Length];//***hasChoose成功读取后删除***
+        ChoosePointNum = new int[4];
         //print(lineArray.Length);
 
         int x1, y1;
         float x2, y2, z2;
+        onePoint = lineArray.Length;
+        cnum = ((Pnum - 1) * 2 + RandKey - 1) * onePoint;
+        print("cnum:"+cnum);
         Sprite nochoose = Resources.Load<Sprite>("image/unfire");
         Sprite haschoose = Resources.Load<Sprite>("image/choosefire");
         //把csv中的数据储存在二位数组中  
@@ -80,8 +88,8 @@ public class Choose : MonoBehaviour {
         {
             Array[i] = lineArray[i].Split(',');
             isChoose[i] = false;
-			feedData.hadChoose[i] = true;//***hasChoose成功读取后删除***
-			failChoose[i] = feedData.hadChoose[i];//***hasChoose成功读取后删除***
+            //feedData.hadChoose[i] = true;//***hasChoose成功读取后删除***
+            successChoose[i] = feedData.hadChoose[i + cnum];//***hasChoose成功读取后删除***
             x1 = (int)((float.Parse(Array[i][0]) / 1280) * width);
             y1 = (int)((float.Parse(Array[i][1]) / 720) * height);
             x2 = float.Parse(Array[i][2]);
@@ -93,14 +101,14 @@ public class Choose : MonoBehaviour {
             GameObject pic = new GameObject((i).ToString());
             //print(transform_point);
             pic.transform.position = transform_point;
-            if (failChoose[i] == true)
+            if (successChoose[i] == true)
                 pic.AddComponent<SpriteRenderer>().sprite = haschoose;
             else
                 pic.AddComponent<SpriteRenderer>().sprite = nochoose;
             pic.GetComponent<SpriteRenderer>().sortingOrder = 2;
 			print ("id" + i);
 
-			if (feedData.hadChoose[i] == false && showClue == true)
+			if (successChoose[i] == false && showClue == true)
                 showClue = false;
         }
 
@@ -176,7 +184,7 @@ public class Choose : MonoBehaviour {
                     choose_num--;
                     isChoose[i] = !isChoose[i];
                     choose_one = GameObject.Find(i.ToString());
-                    if(failChoose[i]==true)
+                    if (successChoose[i] == true)
                         spr = Resources.Load<Sprite>("image/choosefire");
                     else
                         spr = Resources.Load<Sprite>("image/unfire");
@@ -193,26 +201,48 @@ public class Choose : MonoBehaviour {
     public void StartButtonDown()
     {
         float outx, outy, outz;
+        int pointNum = 0;
+
         for (int i = 0; i < this_point.Count; i++)
         {
-            Destroy(GameObject.Find(i.ToString()));
+            //Destroy(GameObject.Find(i.ToString()));
             if (isChoose[i] == true)
             {
-				feedData.hadChoose[i] = true;
+				successChoose[i] = true;
+                ChoosePointNum[pointNum] = i;
+                pointNum++;
+
                 outx = this_point[i].x3d;
                 outy = this_point[i].y3d;
                 outz = this_point[i].z3d;
                 choose_point.Add(new Vector3(outx, outy, outz));
             }
         }
-        for (int i = 0; i < this_point.Count; i++)
-        {
-			if (feedData.hadChoose[i] == false && hasFull == true)
-                hasFull = false;
-        }
         UI.SendMessage("GetPoints",choose_point);
         return;
     }
+
+
+    public void destroyChoose()
+    {
+        for (int i = 0; i < this_point.Count; i++)
+        {
+            Destroy(GameObject.Find(i.ToString()));
+
+        }
+    }
+
+    public void showNoChoose()
+    {
+        Sprite spr;
+        GameObject noSelect_warning = new GameObject("noSelect_warning");
+        noSelect_warning.transform.position = new Vector3(0, 0, 150);
+        spr = Resources.Load<Sprite>("image/noSelect_warning");
+        noSelect_warning.AddComponent<SpriteRenderer>().sprite = spr;
+        Destroy(noSelect_warning, 1);
+        print("选择点数为0");
+    }
+
 
     //显示当前选择点数目
     void NumShow(int num)
@@ -222,7 +252,7 @@ public class Choose : MonoBehaviour {
     }
 
     //游戏结束后的数据存储和显示线索
-    public void Result(bool result)
+    /*public void Result(bool result)
     {
         print("resive");
         if (result == true)
@@ -238,12 +268,45 @@ public class Choose : MonoBehaviour {
                 clueImage.GetComponent<SpriteRenderer>().sortingOrder = 4;
                 Destroy(clueImage, 2);
             }
-            //***存入hadChoose中的内容***
+            for (int i = 0; i < onePoint; i++)
+            {
+                feedData.hadChoose[i + cnum] = successChoose[i];
+                print(i + cnum);
+            }
         }
         else
         {
             print("fail");
-            //***存入failChoose中的内容***
+            for (int i = 0; i < onePoint; i++)
+            {
+                feedData.hadChoose[i + cnum] = failChoose[i];
+            }
+        }
+    }*/
+
+    public void Result(int result)
+    {
+        print("resive:" + result);
+        for (int i = 0; i < result; i++)
+        {
+            feedData.hadChoose[ChoosePointNum[i] + cnum] = true;
+        }
+
+        for (int i = 0; i < this_point.Count; i++)
+        {
+            if (feedData.hadChoose[i + cnum] == false && hasFull == true)
+                hasFull = false;
+        }
+        print("show:" + showClue + " full:" + hasFull);
+        if (showClue == false && hasFull == true)
+        {
+            GameObject clueImage = new GameObject(stringPnum);
+            clueImage.transform.position = new Vector3(0, 0, 150);
+            clueImage.transform.localScale = new Vector3(15, 15, 15);
+            Sprite spr = Resources.Load<Sprite>("image/" + stringPnum);
+            clueImage.AddComponent<SpriteRenderer>().sprite = spr;
+            clueImage.GetComponent<SpriteRenderer>().sortingOrder = 4;
+            Destroy(clueImage, 2);
         }
     }
 }

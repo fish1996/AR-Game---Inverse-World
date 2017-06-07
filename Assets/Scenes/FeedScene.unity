@@ -344,7 +344,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 117620108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -579, y: 67, z: 0}
+  m_LocalPosition: {x: -578, y: 66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1059826693}
@@ -435,7 +435,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 67
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -467,15 +467,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.0003949
+      value: 1.2477719
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.0003949
+      value: 1.2477719
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.0003949
+      value: 1.2477719
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: mWidth
@@ -504,7 +504,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: mText
-      value: "\u5426"
+      value: "\u53D6\u6D88"
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_Layer
@@ -596,7 +596,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 348484691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 914.04004}
+  m_LocalPosition: {x: 1, y: 0, z: 914.04004}
   m_LocalScale: {x: 360, y: 360, z: 360}
   m_Children:
   - {fileID: 630339082}
@@ -900,6 +900,7 @@ MonoBehaviour:
   ImageTarget: {fileID: 27044139}
   HitTargetPrefab: {fileID: 1071648006085012, guid: 9ca3473f8d9ddea4995af11372a99020,
     type: 2}
+  guit_energy: {fileID: 1571221703}
 --- !u!4 &505946827
 Transform:
   m_ObjectHideFlags: 0
@@ -1418,6 +1419,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9097296054bb914ca2b64cfb8a136cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1038583792 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400002, guid: 7c3a28b051e872b448d4808cfcf9199c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1629515517}
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
 --- !u!1 &1059826692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1496,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 0.8
   mClipping: 0
@@ -2156,6 +2163,18 @@ MonoBehaviour:
   relativeOffset: {x: 0, y: 0.33}
   pixelOffset: {x: 0, y: 0}
   widgetContainer: {fileID: 0}
+--- !u!114 &1534126802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1534126795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e657c7f12f80545e3ad589998e65d5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guit: {fileID: 1038583792}
 --- !u!1 &1571221701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,7 +2245,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114268192216011606, guid: a29de4b2b0998e541a66568f2b31822c, type: 2}
-  mText: "\u7075\u529B\u503C\uFF1A100"
+  mText: "\u7075\u529B\u503C\uFF1A10"
   mFontSize: 28
   mFontStyle: 0
   mAlignment: 0
@@ -2490,7 +2509,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: onClick.Array.data[0].mTarget
       value: 
-      objectReference: {fileID: 1534126797}
+      objectReference: {fileID: 1534126802}
     - target: {fileID: 11400000, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: onClick.Array.data[0].mMethodName
       value: Show
@@ -2878,8 +2897,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: feed_btn
+  mAtlas: {fileID: 114442087349925242, guid: e99013c25dee2f84881f7a2561255ea2, type: 2}
+  mSpriteName: press2
   mFillCenter: 1
 --- !u!1001 &1961970482
 Prefab:
@@ -2894,7 +2913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 67
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2951,7 +2970,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: mText
-      value: "\u662F"
+      value: "\u8FD4\u56DE"
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
       propertyPath: m_Layer
