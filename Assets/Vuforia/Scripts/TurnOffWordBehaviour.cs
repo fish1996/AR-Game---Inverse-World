@@ -26,7 +26,7 @@ namespace Vuforia
                 MeshRenderer targetMeshRenderer = this.GetComponent<MeshRenderer>();
                 Destroy(targetMeshRenderer);
                 //The child object for visualizing text is removed at runtime
-                var text = transform.Find("Text");
+                var text = transform.FindChild("Text");
                 if(text != null)
                     Destroy(text.gameObject);
             }

@@ -66,6 +66,32 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: "_0049_---\u601D\u5FF5"
+    x: 603
+    y: 308
+    width: 344
+    height: 298
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "_0051_---\u5723\u8BDE"
+    x: 603
+    y: 9
+    width: 344
+    height: 298
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: "_0045_\u76F8\u89C1"
     x: 0
     y: 577
@@ -79,9 +105,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: "_0046_\u670D\u88C5"
+  - name: "_0048_\u62A5\u590D"
     x: 1131
-    y: 427
+    y: 726
     width: 344
     height: 298
     borderLeft: 0
@@ -105,32 +131,6 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: "_0048_\u62A5\u590D"
-    x: 1131
-    y: 726
-    width: 344
-    height: 298
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: "_0049_---\u601D\u5FF5"
-    x: 603
-    y: 308
-    width: 344
-    height: 298
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: "_0050_---\u5931\u604B"
     x: 603
     y: 607
@@ -144,9 +144,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: "_0051_---\u5723\u8BDE"
-    x: 603
-    y: 9
+  - name: "_0046_\u670D\u88C5"
+    x: 1131
+    y: 427
     width: 344
     height: 298
     borderLeft: 0
@@ -156,19 +156,6 @@ MonoBehaviour:
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
-    paddingBottom: 0
-  - name: press2
-    x: 1131
-    y: 125
-    width: 315
-    height: 301
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 9
-    paddingRight: 0
-    paddingTop: 16
     paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

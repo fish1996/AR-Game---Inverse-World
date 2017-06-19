@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: 1f38623e406ce6449942134cb9dff724
+timeCreated: 1495612520
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: extrudedSurface1
+    100002: extrudedSurface1 1
+    100004: extrudedSurface2
+    100006: extrudedSurface2 1
+    100008: extrudedSurface3
+    100010: extrudedSurface3 1
+    100012: extrudedSurface4
+    100014: extrudedSurface4 1
+    100016: //RootNode
+    100018: null_3
+    100020: nurbsSphere1
+    100022: nurbsSphere2
+    100024: pCube4
+    100026: pCube5
+    100028: pCube6
+    100030: pCube7
+    100032: pCube8
+    100034: polySurface51
+    100036: polySurface53
+    100038: pTorus1
+    100040: pTorus1 1
+    100042: pTorus2
+    100044: pTorus2 1
+    100046: pTorus3
+    100048: pTorus3 1
+    100050: pTorus4
+    100052: pTorus4 1
+    100054: pTorus5
+    100056: pTorus5 1
+    100058: pTorus6
+    100060: pTorus6 1
+    100062: pTorus7
+    100064: pTorus7 1
+    100066: pTorus8
+    100068: pTorus8 1
+    100070: pTorus9
+    100072: pTorus9 1
+    100074: transform2
+    100076: xie_unfold3d_Mesh
+    100078: xie_unfold3d_Mesh 1
+    100080: xiezi
+    100082: xiezi1
+    400000: extrudedSurface1
+    400002: extrudedSurface1 1
+    400004: extrudedSurface2
+    400006: extrudedSurface2 1
+    400008: extrudedSurface3
+    400010: extrudedSurface3 1
+    400012: extrudedSurface4
+    400014: extrudedSurface4 1
+    400016: //RootNode
+    400018: null_3
+    400020: nurbsSphere1
+    400022: nurbsSphere2
+    400024: pCube4
+    400026: pCube5
+    400028: pCube6
+    400030: pCube7
+    400032: pCube8
+    400034: polySurface51
+    400036: polySurface53
+    400038: pTorus1
+    400040: pTorus1 1
+    400042: pTorus2
+    400044: pTorus2 1
+    400046: pTorus3
+    400048: pTorus3 1
+    400050: pTorus4
+    400052: pTorus4 1
+    400054: pTorus5
+    400056: pTorus5 1
+    400058: pTorus6
+    400060: pTorus6 1
+    400062: pTorus7
+    400064: pTorus7 1
+    400066: pTorus8
+    400068: pTorus8 1
+    400070: pTorus9
+    400072: pTorus9 1
+    400074: transform2
+    400076: xie_unfold3d_Mesh
+    400078: xie_unfold3d_Mesh 1
+    400080: xiezi
+    400082: xiezi1
+    2300000: null_3
+    2300002: pCube5
+    2300004: pCube6
+    2300006: pCube7
+    2300008: pCube8
+    2300010: polySurface51
+    2300012: polySurface53
+    2300014: pTorus1
+    2300016: pTorus1 1
+    2300018: pTorus2
+    2300020: pTorus2 1
+    2300022: pTorus3
+    2300024: pTorus3 1
+    2300026: pTorus4
+    2300028: pTorus4 1
+    2300030: pTorus5
+    2300032: pTorus5 1
+    2300034: pTorus6
+    2300036: pTorus6 1
+    2300038: pTorus7
+    2300040: pTorus7 1
+    2300042: pTorus8
+    2300044: pTorus8 1
+    2300046: pTorus9
+    2300048: pTorus9 1
+    2300050: xie_unfold3d_Mesh
+    2300052: xie_unfold3d_Mesh 1
+    3300000: null_3
+    3300002: pCube5
+    3300004: pCube6
+    3300006: pCube7
+    3300008: pCube8
+    3300010: polySurface51
+    3300012: polySurface53
+    3300014: pTorus1
+    3300016: pTorus1 1
+    3300018: pTorus2
+    3300020: pTorus2 1
+    3300022: pTorus3
+    3300024: pTorus3 1
+    3300026: pTorus4
+    3300028: pTorus4 1
+    3300030: pTorus5
+    3300032: pTorus5 1
+    3300034: pTorus6
+    3300036: pTorus6 1
+    3300038: pTorus7
+    3300040: pTorus7 1
+    3300042: pTorus8
+    3300044: pTorus8 1
+    3300046: pTorus9
+    3300048: pTorus9 1
+    3300050: xie_unfold3d_Mesh
+    3300052: xie_unfold3d_Mesh 1
+    4300000: pCube5
+    4300002: pCube6
+    4300004: pCube7
+    4300006: xie_unfold3d_Mesh
+    4300008: pTorus1
+    4300010: pTorus2
+    4300012: pTorus3
+    4300014: pTorus4
+    4300016: pTorus5
+    4300018: pTorus6
+    4300020: pTorus7
+    4300022: pTorus8
+    4300024: pTorus9
+    4300026: pCube8
+    4300028: xie_unfold3d_Mesh
+    4300030: pTorus1
+    4300032: pTorus2
+    4300034: pTorus3
+    4300036: pTorus4
+    4300038: pTorus5
+    4300040: pTorus6
+    4300042: pTorus7
+    4300044: pTorus8
+    4300046: pTorus9
+    4300048: polySurface51
+    4300050: polySurface53
+    4300052: null_3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

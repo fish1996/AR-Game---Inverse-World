@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainCharacter
-  - ProgressBar_Feed
-  - gunBarrel_Feed
-  - MainController_Feed
   layers:
   - Default
   - TransparentFX
