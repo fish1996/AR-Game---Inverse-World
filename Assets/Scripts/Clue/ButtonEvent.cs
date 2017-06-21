@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonEvent : MonoBehaviour {
-	private const int NUM = 31;
+	private const int NUM = 39;
 	private float acc = 0.1f;
 	private float[] speed = new float[NUM];
 	private Vector2[] vector = new Vector2[NUM];
@@ -13,7 +13,7 @@ public class ButtonEvent : MonoBehaviour {
 	void Awake(){
 		for (int i = 0; i < NUM; i++) {
 			speed [i] = 0.0f;
-			obj [i] = GameObject.Find ("UI Root (3D)/Canvas/Clue" + i);
+			obj [i] = GameObject.Find ("UI Root (3D)/Canvas/Clue" + (i + 1));
 			UIEventListener.Get (obj[i]).onClick += ButtonClick;
 			UIEventListener.Get (obj[i]).onDrag += ButtonDrag;
 			obj [i].AddComponent<Rigidbody> ();

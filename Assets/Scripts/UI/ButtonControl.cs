@@ -38,6 +38,7 @@ public class ButtonControl : MonoBehaviour {
 			break;
 
 		case "ClueButton":
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Cues"); 
 			break;
 		
 		case "FoodButton":

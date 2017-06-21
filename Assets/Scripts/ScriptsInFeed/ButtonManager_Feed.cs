@@ -16,11 +16,13 @@ public class ButtonManager_Feed : MonoBehaviour {
     public GameObject ProgressBar;
     public GameObject LessText;
     public GameObject MoreText;
+    public UILabel energyText;
 
     private bool isPressed;
     private float pressTime;
     private List<Vector3> choose_points = new List<Vector3>();
     private const float scaledTargetSize=0.25f;
+    private ManaData manaData = ManaData.getInstance();
 
     private void Awake()
 
@@ -35,6 +37,7 @@ public class ButtonManager_Feed : MonoBehaviour {
         ProgressBar = GameObject.Find("Progress");
         isPressed = false;
         pressTime = 0;
+        energyText.text = "灵力值：" + manaData.mana;
     }
 
     public void GetPoints(List<Vector3> choose_point)

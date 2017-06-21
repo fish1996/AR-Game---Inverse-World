@@ -30,9 +30,10 @@ public class MainController : MonoBehaviour
     private int tryTime=0;
     private float scaleRank;
     public static int add_energy;
-    private int temp_energy=10;
+    //private int temp_energy=10;
     Object addEnergySuCai;
     GameObject addEnergy;
+	private ManaData manaData = ManaData.getInstance();
 
     void Start()
     {
@@ -96,8 +97,8 @@ public class MainController : MonoBehaviour
             Destroy(addEnergy,1);
 
             //从数据库获取灵力值temp_energy=???;temp_energy=temp_energy+add_energy;
-            temp_energy = temp_energy + add_energy;
-            guit_energy.text="灵力值："+temp_energy;
+			manaData.mana = manaData.mana + add_energy;
+			guit_energy.text="灵力值："+manaData.mana;
             StopTheGame();
             Debug.Log("Win");
             //GameObject.Find("Camera").SendMessage("Result", true);

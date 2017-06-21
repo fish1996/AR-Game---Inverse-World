@@ -13,10 +13,10 @@ public class CameraMove : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if(GUI.RepeatButton(new Rect(50,350,100,20),"Left")){
+		if(GUI.RepeatButton(new Rect(0,350,50,80),"Left")){
 			LeftMove();
 		}
-		if(GUI.RepeatButton(new Rect(500,350,100,20),"Right")){
+		if(GUI.RepeatButton(new Rect(1250,350,50,80),"Right")){
 			RightMove();
 		}
 	}
@@ -24,14 +24,14 @@ public class CameraMove : MonoBehaviour {
     void LeftMove()
     {
         Vector3 nowp = camera.transform.position;
-        if (nowp.x > -4707)
+        if (nowp.x > -4507)
             camera.transform.Translate(new Vector3(-100, 0, 0));
     }
 
     void RightMove()
     {
         Vector3 nowp = camera.transform.position;
-        if (nowp.x < 3392)
+        if (nowp.x < 3892)
             camera.transform.Translate(new Vector3(100, 0, 0));
     }
 }

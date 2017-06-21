@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using System.IO;
 
 public struct Combination
 {
@@ -23,9 +24,9 @@ public struct Combination
 
 public class ClueJudge : MonoBehaviour {
 
-    public string folder = "data/clue1";
+    public string folder;
     private int choose1 = -1, choose2 = -1;
-	private ClueData clueData = ClueData.getInstance();
+    private ClueData clueData = ClueData.getInstance();
 	private StartData startData = StartData.getInstance();
     private SaveData saveData;////
 	private bool isAppear = false;
@@ -41,7 +42,10 @@ public class ClueJudge : MonoBehaviour {
 	private int appearCount;
     public GameObject FinishButton;
     public GameObject ReturnButton;
-    public Dialogtext clue;
+    public Dialogtext clueText;
+    public GameObject Content;
+
+    public Text test;
 
     void Awake()
     {
@@ -57,15 +61,13 @@ public class ClueJudge : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //获取对话内容
-        //clue = Dialogtext.GetInstance();
-        //string t = clue.clueIntroduction.cluetxt [0].clueparagraph//获取线索内容
-		white = GameObject.Find("Clue1").GetComponent<UISprite>().color;
+
+        white = GameObject.Find("Clue1").GetComponent<UISprite>().color;
         //监听完成和返回按钮
         Button finishone = (Button)FinishButton.GetComponent<Button>();
         Button returnone = (Button)ReturnButton.GetComponent<Button>();
         finishone.onClick.AddListener(FinishButtonDown);
-        //returnone.onClick.AddListener(ReturnButtonDown);
+        returnone.onClick.AddListener(ReturnButtonDown);
 
 		clueData.index = 5;
         //判断一级线索状态
@@ -79,6 +81,7 @@ public class ClueJudge : MonoBehaviour {
 			
         //读入二级三级线索状态
         //读取文件  
+        folder = Path.Combine("Data", "clue1");
         TextAsset binAsset = Resources.Load(folder, typeof(TextAsset)) as TextAsset;//bug?
 
         //读取每一行的内容  
@@ -92,14 +95,21 @@ public class ClueJudge : MonoBehaviour {
         //把csv中的数据储存在二位数组中  
 		for (int i = 0; i < clueData.combinationnum; i++)
         {
+            if (i == 0)
+                test.text = lineArray[i];
             Array[i] = lineArray[i].Split(',');
+            if (clueData.isActive[i] == true)
+                a = 1;
+            else
+                a = 0;
             a = int.Parse(Array[i][0]);
             c1 = int.Parse(Array[i][1]);
             c2 = int.Parse(Array[i][2]);
             r = int.Parse(Array[i][3]);
             cluecombination.Add(new Combination(a, c1, c2, r));
-            if (a == 1)
-				clueData.isActive[r] = true;
+            /*if (a == 1)
+				clueData.isActive[r] = true;*/
+            //print(i + " " + clueData.isActive[r]);
         }
 
         //绘制可见性
@@ -108,7 +118,7 @@ public class ClueJudge : MonoBehaviour {
 
         for (int i = 0; i < clueData.all_num; i++)
         {
-            temp = clue + i.ToString();
+            temp = clue + (i + 1).ToString();
 			if (clueData.isActive[i] == false)
                 GameObject.Find(temp).transform.Translate(tPosition);
         }
@@ -166,6 +176,9 @@ public class ClueJudge : MonoBehaviour {
             else
                 print("选择错误");
         }
+
+        Content.SendMessage("GetChoose1", choose1);
+        Content.SendMessage("GetChoose2", choose2);
     }
 
 	private void clearColor(){
@@ -204,12 +217,23 @@ public class ClueJudge : MonoBehaviour {
 				originalColor = appearObj.GetComponent<UISprite> ().color;
 				appearCount = 0;
 				isAppear = true;
+
+                if (cluecombination[i].result >= 40)
+                {
+                    //****************************************过场动画******************************************************************
+                }
                 return;
             }
         }
 		clearColor ();
         print("线索组合错误");
         return;
+    }
+
+    private void ReturnButtonDown()
+    {
+        //界面跳转
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene"); 
     }
 		
 }

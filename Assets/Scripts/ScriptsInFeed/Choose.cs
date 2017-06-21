@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using System.IO;
 
 public struct Points
 {
@@ -34,7 +35,7 @@ public class Choose : MonoBehaviour {
     private StoryData data = StoryData.getInstance();
     private int Pnum;
     private string stringPnum;
-    private string folder="data/position";
+    private string folder;
     public List<Points> this_point = new List<Points>();
     public bool[] isChoose;
 	private FeedData feedData = FeedData.getInstance ();
@@ -60,10 +61,11 @@ public class Choose : MonoBehaviour {
         System.Random ran = new System.Random();
         int RandKey = ran.Next(1, 3);
         stringPnum = Pnum.ToString() + "_" + RandKey.ToString();
-        folder = folder + stringPnum;
-        print(folder);
+        string foldernum = "position" + stringPnum;
 
         //读取文件  
+        folder = Path.Combine("Data", foldernum);
+        print(folder);
         TextAsset binAsset = Resources.Load(folder, typeof(TextAsset)) as TextAsset;
 
         //读取每一行的内容  
@@ -86,6 +88,8 @@ public class Choose : MonoBehaviour {
         //把csv中的数据储存在二位数组中  
         for (int i = 0; i < lineArray.Length; i++)
         {
+            if (i == 0)
+                guit.text = lineArray[i];
             Array[i] = lineArray[i].Split(',');
             isChoose[i] = false;
             //feedData.hadChoose[i] = true;//***hasChoose成功读取后删除***
@@ -247,7 +251,7 @@ public class Choose : MonoBehaviour {
     //显示当前选择点数目
     void NumShow(int num)
     {
-        guit.text = "已选择点数:" + num;
+        //guit.text = "已选择点数:" + num;
         return; 
     }
 

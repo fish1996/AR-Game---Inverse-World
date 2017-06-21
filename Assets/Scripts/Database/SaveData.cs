@@ -197,7 +197,7 @@ public class SaveData{
                     ExecuteQuery(query);
 
                     //向clue存入初始数据
-                    query = "INSERT INTO " + tableName[2] + " values(1,14,0,12,0);";
+                    query = "INSERT INTO " + tableName[2] + " values(1,44,0,12,0);";
                     ExecuteQuery(query);
                     break;
                 }

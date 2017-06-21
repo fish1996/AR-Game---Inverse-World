@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FeedScene.unity
     guid: a6be8883546aa3e41b6c45b5d04305f1
+  - enabled: 1
+    path: Assets/Scenes/Cues.unity
+    guid: 0f54e1a1aedb58840858cb916d9b9cee

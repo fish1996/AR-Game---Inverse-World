@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44853085, g: 0.49858046, b: 0.5755743, a: 1}
+  m_IndirectSpecularColor: {r: 0.44861162, g: 0.49866265, b: 0.5756675, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -228,8 +228,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 80427293}
-  - component: {fileID: 80427292}
   - component: {fileID: 80427294}
+  - component: {fileID: 80427292}
   m_Layer: 0
   m_Name: Dialog
   m_TagString: Untagged

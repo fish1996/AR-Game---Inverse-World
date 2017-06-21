@@ -12,10 +12,12 @@ public class Dialogtext : MonoBehaviour {
 
 	void Awake()
 	{
-		/*string n = "衡琳";
-		PlayerPrefs.SetString ("membername",n);*/
+		string n = "衡琳";
+		PlayerPrefs.SetString ("membername",n);
 		string name = PlayerPrefs.GetString("membername");
 		getText(name);
+        //string t = Dialogtext.GetInstance().clueIntroduction.cluetxt[0].clueparagraph;//获取线索内容
+        //print(t);
 	}
 
 	public static Dialogtext GetInstance(){
@@ -69,7 +71,7 @@ public class Dialogtext : MonoBehaviour {
 
 			ptxt = new List<Ptxt>();
 			string [] PassArray;
-			PassArray=SplitWithString(binAsset.text,"关卡："); //根据关卡分割字符串
+            PassArray = SplitWithString(binAsset.text, "关卡："); //根据关卡分割字符串
 			pnum=PassArray.Length;
 
 			for (int i = 0; i < PassArray.Length; i++){
@@ -83,7 +85,7 @@ public class Dialogtext : MonoBehaviour {
 		{
 			Ptxt temp;
 			string [] ClueArray;
-			ClueArray=SplitWithString(text,"\r\n\r\n"); //根据线索分割字符串，此处选择空行区分每一线索
+            ClueArray = SplitWithString(text, "***"); //根据线索分割字符串，此处选择空行区分每一线索
 
 			temp.ctxt = new List<Ctxt>();
 
@@ -92,7 +94,7 @@ public class Dialogtext : MonoBehaviour {
 				temp.ctxt.Add(tempctxt);
 			}
 
-			temp.cnum = ClueArray.Length-1;
+			temp.cnum = ClueArray.Length-2;
 
 			return temp;
 		}
@@ -111,7 +113,7 @@ public class Dialogtext : MonoBehaviour {
 			for (int i = 0; i < DialogArray.Length; i++) {
 				Dtxt tempdtxt=new Dtxt();
 				string line=DialogArray[i];
-				if (line.StartsWith (" ")) {
+				if (line.StartsWith ("")) {
 					continue;
 				} 
 				else {
@@ -134,7 +136,7 @@ public class Dialogtext : MonoBehaviour {
 						temp.dtxt.Add (tempdtxt);
 					} 
 					else {
-						string fclue = line.Substring (0, line.IndexOf ("："));
+                        string fclue = line.Substring(0, line.IndexOf("："));
 						temp.clue = fclue;
 					}
 				}
@@ -144,8 +146,8 @@ public class Dialogtext : MonoBehaviour {
 
 		//得到每句对话
 		public static string Getdialog(string line){
-			int length = line.Length - line.IndexOf ("：") - 1;
-			string dialog = line.Substring(line.IndexOf("：") + 1,length);
+            int length = line.Length - line.IndexOf("：") - 1;
+            string dialog = line.Substring(line.IndexOf("：") + 1, length);
 			return dialog;
 		}
 	}
@@ -169,9 +171,13 @@ public class Dialogtext : MonoBehaviour {
 
 			cluetxt = new List<Clue>();
 			string [] PassArray;
-			PassArray=SplitWithString(binAsset.text,"\r\n\r\n"); //根据空行分割字符串
+            PassArray = SplitWithString(binAsset.text, "***"); //根据空行分割字符串
 
 			for (int i = 0; i < PassArray.Length; i++){
+                if (PassArray[i] == "")
+                {
+                    continue;
+                }
 				Clue tempcluetxt=Classify(PassArray[i],i);
 				cluetxt.Add(tempcluetxt);
 			}
@@ -184,11 +190,11 @@ public class Dialogtext : MonoBehaviour {
 			string [] ClueArray;
 			ClueArray=SplitWithString(text,"\n"); //根据线索分割字符串，此处选择空行区分每一线索
 
-			string line = ClueArray [0];
-			temp.cluewords = line.Substring (0, line.IndexOf ("："));
+			string line = ClueArray [1];
+            temp.cluewords = line.Substring(0, line.IndexOf("："));
 
-			int length = text.Length - ClueArray [0].Length - 1;
-			temp.clueparagraph = text.Substring (ClueArray [0].Length + 1,length);
+			int length = text.Length - ClueArray [1].Length - 1;
+			temp.clueparagraph = text.Substring (ClueArray [1].Length + 1,length);
 
 			temp.isshow = false;
 			temp.ordernum = i + 1;
@@ -212,7 +218,7 @@ public class Dialogtext : MonoBehaviour {
 				arrayList.Add (s);  
 			}
 		}  
-		arrayList.Add(sourceString);  
+		arrayList.Add(sourceString);
 		return arrayList.ToArray();  
 	}
 }
