@@ -30,7 +30,7 @@ Shader "Custom/AlphaProgress" {
 		float4 c = tex2D(_MainTex,i.uv);
 		//clip(_Progress - tex2D(_MaskTex,i.uv).a);
 		if(_Progress - tex2D(_MaskTex,i.uv).a > 0){
-			c.a = tex2D(_MainTex,i.uv).a;
+			c.a = tex2D(_MainTex,i.uv).a*_Progress;
 		}
 		else{
 			c.a = 0;
