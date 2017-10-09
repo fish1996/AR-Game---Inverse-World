@@ -8,3 +8,5 @@
 *.DS_Store
 .vs/
 *.db
+*.db
+playerdata.db
