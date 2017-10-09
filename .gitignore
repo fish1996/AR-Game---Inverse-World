@@ -2,7 +2,9 @@
 /Temp/
 /.vscode/
 /obj/
+/QCAR/
 *.sln
 *.csproj
 *.DS_Store
 .vs/
+*.db
