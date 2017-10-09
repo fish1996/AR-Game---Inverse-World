@@ -5,6 +5,7 @@
 /QCAR/
 *.sln
 *.csproj
+*.unityproj
 *.DS_Store
 .vs/
 *.db
